@@ -9,7 +9,7 @@ const services = [
     title: "Web Development",
     description: "Pixel-perfect, responsive websites built with modern frameworks.",
     tags: ["React", "Next.js", "TypeScript"],
-    size: "large", // spans 2 columns
+    size: "medium", // spans 1 column
     accent: "emerald",
   },
   {

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Send, CheckCircle } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import {
   Select,
   SelectContent,
@@ -23,6 +24,7 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
     email: "",
     projectType: "",
     budget: "",
+    message: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -35,7 +37,7 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
     // Reset form after close animation
     setTimeout(() => {
       setIsSubmitted(false);
-      setFormData({ name: "", email: "", projectType: "", budget: "" });
+      setFormData({ name: "", email: "", projectType: "", budget: "", message: "" });
     }, 300);
   };
 
@@ -59,13 +61,7 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-lg rounded-3xl overflow-hidden"
-            style={{
-              background: "linear-gradient(145deg, hsl(199 58% 15% / 0.9), hsl(198 78% 12% / 0.95))",
-              backdropFilter: "blur(20px)",
-              border: "1px solid hsl(199 40% 30% / 0.5)",
-              boxShadow: "0 25px 50px -12px hsl(198 78% 5% / 0.5), inset 0 1px 0 hsl(182 23% 48% / 0.1)",
-            }}
+            className="relative w-full max-w-sm rounded-3xl overflow-hidden card-glass"
           >
             {/* Close Button */}
             <button
@@ -75,7 +71,7 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
               <X className="w-5 h-5" />
             </button>
 
-            <div className="p-8 md:p-10">
+            <div className="p-4 md:p-6">
               <AnimatePresence mode="wait">
                 {!isSubmitted ? (
                   <motion.div
@@ -86,7 +82,7 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                   >
                     {/* Header */}
                     <div className="mb-8">
-                      <h3 className="text-2xl md:text-3xl font-bold text-foreground tracking-tight mb-2">
+                      <h3 className="text-xl md:text-2xl font-bold text-foreground tracking-tight mb-2">
                         Start Your Project
                       </h3>
                       <p className="text-muted-foreground">
@@ -95,7 +91,7 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                     </div>
 
                     {/* Form */}
-                    <form onSubmit={handleSubmit} className="space-y-6">
+                    <form onSubmit={handleSubmit} className="space-y-4">
                       <div className="space-y-2">
                         <Label htmlFor="name" className="text-foreground">
                           Name
@@ -108,7 +104,7 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                             setFormData({ ...formData, name: e.target.value })
                           }
                           required
-                          className="bg-secondary/30 border-border/50 focus:border-muted-sage h-12"
+                          className="bg-secondary/30 border-border/50 focus:border-neon-emerald h-12"
                         />
                       </div>
 
@@ -125,7 +121,7 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                             setFormData({ ...formData, email: e.target.value })
                           }
                           required
-                          className="bg-secondary/30 border-border/50 focus:border-muted-sage h-12"
+                          className="bg-secondary/30 border-border/50 focus:border-neon-emerald h-12"
                         />
                       </div>
 
@@ -140,7 +136,7 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                           }
                           required
                         >
-                          <SelectTrigger className="bg-secondary/30 border-border/50 focus:border-muted-sage h-12">
+                          <SelectTrigger className="bg-secondary/30 border-border/50 focus:border-neon-emerald h-12">
                             <SelectValue placeholder="Select project type" />
                           </SelectTrigger>
                           <SelectContent className="bg-card border-border">
@@ -164,7 +160,7 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                           }
                           required
                         >
-                          <SelectTrigger className="bg-secondary/30 border-border/50 focus:border-muted-sage h-12">
+                          <SelectTrigger className="bg-secondary/30 border-border/50 focus:border-neon-emerald h-12">
                             <SelectValue placeholder="Select budget range" />
                           </SelectTrigger>
                           <SelectContent className="bg-card border-border">
@@ -174,6 +170,22 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                             <SelectItem value="50k+">$50,000+</SelectItem>
                           </SelectContent>
                         </Select>
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="message" className="text-foreground">
+                          Project Details
+                        </Label>
+                        <Textarea
+                          id="message"
+                          placeholder="Tell us about your project vision, timeline, and any specific requirements..."
+                          value={formData.message}
+                          onChange={(e) =>
+                            setFormData({ ...formData, message: e.target.value })
+                          }
+                          required
+                          className="bg-secondary/30 border-border/50 focus:border-neon-emerald min-h-[80px] resize-none"
+                        />
                       </div>
 
                       <button type="submit" className="btn-primary w-full flex items-center justify-center gap-2">
@@ -205,7 +217,7 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                     </p>
                     <button
                       onClick={handleClose}
-                      className="mt-8 px-6 py-3 rounded-full border border-border text-foreground hover:bg-secondary/30 transition-colors"
+                      className="mt-8 btn-ghost"
                     >
                       Close
                     </button>

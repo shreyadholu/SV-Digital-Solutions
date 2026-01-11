@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Mail, Linkedin, Twitter, ArrowUp } from "lucide-react";
+import { ArrowUpRight, Mail, Instagram, ArrowUp } from "lucide-react";
 
 interface FooterProps {
   onOpenContact: () => void;
@@ -87,17 +87,8 @@ const Footer = ({ onOpenContact }: FooterProps) => {
                     href="#"
                     className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors duration-300"
                   >
-                    <Linkedin className="w-4 h-4" />
-                    LinkedIn
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors duration-300"
-                  >
-                    <Twitter className="w-4 h-4" />
-                    Twitter
+                    <Instagram className="w-4 h-4" />
+                    Instagram
                   </a>
                 </li>
               </ul>

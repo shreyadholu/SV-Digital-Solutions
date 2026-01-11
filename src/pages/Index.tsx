@@ -7,7 +7,7 @@ import Process from "@/components/Process";
 import Portfolio from "@/components/Portfolio";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
-import PremiumCursor from "@/components/PremiumCursor";
+
 import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 
 const Index = () => {
@@ -16,7 +16,6 @@ const Index = () => {
 
   return (
     <main className="min-h-screen bg-void-black text-foreground overflow-x-hidden">
-      <PremiumCursor />
       <Navigation />
       <Hero onOpenContact={() => setIsContactOpen(true)} />
       <CylindricalMarquee />

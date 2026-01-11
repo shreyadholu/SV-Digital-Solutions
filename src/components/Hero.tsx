@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+/*  */import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { useRef, Suspense } from "react";
 import ParticleSphere from "./ParticleSphere";
@@ -103,7 +103,7 @@ const Hero = ({ onOpenContact }: HeroProps) => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter mb-6 px-4 leading-[1.1]"
+          className="text-4xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter mb-6 px-4 leading-[1.1]"
         >
           <span className="text-foreground">Building </span>
           <span className="text-gradient-emerald italic inline-block pr-[0.15em] overflow-visible">
@@ -112,7 +112,7 @@ const Hero = ({ onOpenContact }: HeroProps) => {
 
           <br />
           <span className="text-gradient-emerald italic inline-block pr-1">Solutions</span>
-          <span className="text-foreground"> That Matter</span>
+          <span className="text-foreground text-3xl md:text-7xl lg:text-8xl"> That Matter</span>
         </motion.h1>
         
         {/* Tagline */}
@@ -132,10 +132,10 @@ const Hero = ({ onOpenContact }: HeroProps) => {
           transition={{ duration: 0.6, delay: 0.7 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <button onClick={onOpenContact} className="btn-primary">
+          <button onClick={onOpenContact} className="btn-primary px-6 py-3 sm:px-8 sm:py-4">
             Start Your Project
           </button>
-          <a href="#work" className="btn-ghost">
+          <a href="#work" className="btn-ghost px-6 py-3 sm:px-8 sm:py-4">
             View Our Work
           </a>
         </motion.div>
