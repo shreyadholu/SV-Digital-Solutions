@@ -11,9 +11,13 @@ const Footer = ({ onOpenContact }: FooterProps) => {
   };
 
   return (
-    <footer id="contact" className="py-20 border-t border-border relative overflow-hidden">
+     <footer
+        id="contact"
+        className="py-20 border-t border-border relative overflow-hidden pointer-events-auto z-20"
+      >
+
       {/* Background Watermark */}
-      <div className="watermark bottom-0 right-0 translate-x-1/4 translate-y-1/4">
+      <div className="watermark bottom-0 right-0 translate-x-1/4 translate-y-1/4 z-0">
         SV
       </div>
 
@@ -83,10 +87,8 @@ const Footer = ({ onOpenContact }: FooterProps) => {
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors duration-300"
-                  >
+                  <a href="https://www.instagram.com/sv_digital_solutions" target="_blank" rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors duration-300">
                     <Instagram className="w-4 h-4" />
                     Instagram
                   </a>

@@ -323,3 +323,31 @@
   .delay-400 { animation-delay: 400ms; }
   .delay-500 { animation-delay: 500ms; }
 }
+
+/* ================================
+   Particle Sphere Responsive Fix
+   ================================ */
+
+/* Desktop – restore original hero presence */
+.sphere-wrapper {
+  width: min(80vw, 720px);  
+  aspect-ratio: 1 / 1;
+}
+
+/* Tablet & phone */
+@media (max-width: 768px) {
+  .sphere-wrapper {
+    width: min(92vw, 460px);
+  }
+}
+
+@media (max-width: 480px) {
+  .sphere-wrapper {
+    width: min(95vw, 420px);
+  }
+}
+
+.sphere-wrapper canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
