@@ -37,11 +37,12 @@ const Navigation = () => {
       >
         <nav className="section-container py-5 flex items-center justify-between">
           {/* Logo */}
-          <a href="/" className="flex items-center group">
+          <a href="/" className="flex items-center group transition-transform duration-300 hover:scale-105">
           <img
             src="/sv-digi-solution-logo.png"
             alt="SV Digital Solutions"
-            className="h-8 md:h-9 w-auto transition-opacity duration-300 group-hover:opacity-80"
+            className="h-9 md:h-10 w-auto transition-all duration-300"
+            style={{filter: "drop-shadow(0 0 15px rgba(95, 149, 152, 0.3))"}}
           />
          </a>
 

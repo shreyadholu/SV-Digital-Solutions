@@ -74,18 +74,18 @@ const ServiceCard = ({
     >
       {/* Icon */}
       <div className="mb-6">
-        <div className="w-14 h-14 rounded-2xl bg-neon-emerald/5 flex items-center justify-center group-hover:bg-neon-emerald/15 transition-all duration-300 border border-neon-emerald/20 group-hover:border-neon-emerald/40">
-          <service.icon className="w-7 h-7 text-neon-emerald" />
+        <div className="w-16 h-16 rounded-2xl bg-neon-emerald/8 flex items-center justify-center group-hover:bg-neon-emerald/20 transition-all duration-300 border border-neon-emerald/30 group-hover:border-neon-emerald/60 shadow-lg">
+          <service.icon className="w-8 h-8 text-neon-emerald" />
         </div>
       </div>
 
       {/* Title */}
-      <h3 className="text-2xl font-bold text-foreground mb-3 tracking-tight group-hover:text-neon-emerald transition-colors duration-300">
+      <h3 className="text-2xl font-bold text-foreground mb-4 tracking-tight group-hover:text-neon-emerald transition-colors duration-300 leading-tight">
         {service.title}
       </h3>
 
       {/* Description */}
-      <p className="text-muted-foreground leading-relaxed mb-6 text-sm">
+      <p className="text-muted-foreground leading-relaxed mb-6 text-base font-light">
         {service.description}
       </p>
 
@@ -94,7 +94,7 @@ const ServiceCard = ({
         {service.tags.map((tag) => (
           <span
             key={tag}
-            className="px-3 py-1 text-xs font-medium rounded-full bg-neon-emerald/5 text-muted-foreground border border-neon-emerald/20 hover:border-neon-emerald/40 hover:text-neon-emerald transition-all duration-300"
+            className="px-3 py-2 text-xs font-semibold rounded-full bg-neon-emerald/8 text-muted-foreground border border-neon-emerald/30 hover:border-neon-emerald/60 hover:text-neon-emerald transition-all duration-300 shadow-sm"
           >
             {tag}
           </span>

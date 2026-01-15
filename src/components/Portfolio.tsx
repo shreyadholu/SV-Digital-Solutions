@@ -66,48 +66,54 @@ const ProjectCard = ({
         index === 0 || index === 3 ? "md:col-span-2" : "md:col-span-1"
       }`}
     >
-      <div className="block portfolio-image aspect-[16/10] bg-card relative cursor-pointer overflow-hidden rounded-3xl">
+      <div className="block portfolio-image aspect-[16/10] bg-card relative cursor-pointer overflow-hidden rounded-3xl" style={{boxShadow: "0 0 80px rgba(0,0,0,0.5), inset 0 0 40px rgba(255,255,255,0.02)"}}>
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-115"
         />
         
-        {/* Enhanced Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-void-black/98 via-void-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        {/* Premium Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-void-black/99 via-void-black/70 via-50% to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        
+        {/* Premium shine effect */}
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{
+          background: "linear-gradient(135deg, transparent 0%, hsl(160 100% 50% / 0.1) 50%, transparent 100%)",
+          animation: "shimmer 3s infinite"
+        }} />
         
         {/* Content */}
-        <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-          {/* Service badge - enhanced */}
-          <span className="inline-flex items-center gap-1 text-neon-emerald text-xs font-semibold tracking-wider mb-2 bg-neon-emerald/10 backdrop-blur-md px-3 py-2 rounded-full w-fit border border-neon-emerald/30">
+        <div className="absolute inset-0 p-8 flex flex-col justify-end translate-y-8 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+          {/* Service badge - premium */}
+          <span className="inline-flex items-center gap-1 text-neon-emerald text-xs font-bold tracking-widest mb-3 bg-neon-emerald/15 backdrop-blur-xl px-4 py-2 rounded-full w-fit border border-neon-emerald/50" style={{boxShadow: "0 0 20px rgba(95, 149, 152, 0.3)"}}>
             {project.service}
           </span>
           
-          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2 tracking-tight">
+          <h3 className="text-3xl md:text-4xl font-extrabold text-foreground mb-3 tracking-tight">
             {project.title}
           </h3>
-          <p className="text-muted-foreground text-sm md:text-base mb-4 line-clamp-2">
+          <p className="text-muted-foreground text-base mb-5 line-clamp-2 font-light">
             {project.description}
           </p>
           
-          {/* Result - enhanced */}
-          <div className="flex items-center gap-2 text-neon-emerald text-sm font-semibold mb-4">
-            <TrendingUp className="w-4 h-4" />
+          {/* Result - premium */}
+          <div className="flex items-center gap-2 text-neon-emerald text-base font-bold mb-5 tracking-wide">
+            <TrendingUp className="w-5 h-5" />
             <span>{project.result}</span>
           </div>
           
           <a
             href={project.link}
-            className="inline-flex items-center gap-2 text-neon-emerald font-semibold hover:text-white transition-colors duration-300 group/link w-fit"
+            className="inline-flex items-center gap-2 text-neon-emerald font-bold hover:text-white transition-all duration-300 group/link w-fit text-lg"
           >
-            <span>View Live Site</span>
-            <ExternalLink className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+            <span>Explore Project</span>
+            <ExternalLink className="w-5 h-5 group-hover/link:translate-x-2 group-hover/link:translate-y-[-2px] transition-transform" />
           </a>
         </div>
 
-        {/* Corner Icon - enhanced */}
-        <div className="absolute top-6 right-6 w-12 h-12 rounded-full bg-neon-emerald/10 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-neon-emerald/30 group-hover:border-neon-emerald/60">
-          <ExternalLink className="w-5 h-5 text-neon-emerald" />
+        {/* Premium Corner Icon */}
+        <div className="absolute top-8 right-8 w-16 h-16 rounded-full bg-neon-emerald/20 backdrop-blur-xl flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-neon-emerald/50" style={{boxShadow: "0 0 30px rgba(95, 149, 152, 0.4)"}}>
+          <ExternalLink className="w-6 h-6 text-neon-emerald" />
         </div>
       </div>
     </motion.div>

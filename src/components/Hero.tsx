@@ -89,13 +89,16 @@ const Hero = ({ onOpenContact }: HeroProps) => {
       >
         {/* Badge */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-obsidian/60 backdrop-blur-sm border border-border/50 mb-8"
+          initial={{ opacity: 0, scale: 0.8, y: -10 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2, type: "spring", stiffness: 100 }}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-obsidian/40 backdrop-blur-lg border border-neon-emerald/20 mb-8 shadow-lg"
+          style={{
+            boxShadow: "0 0 30px rgba(95, 149, 152, 0.2), inset 0 1px 0 rgba(255,255,255,0.1)"
+          }}
         >
-          <span className="w-2 h-2 rounded-full bg-neon-emerald animate-pulse" />
-          <span className="text-xs text-muted-foreground tracking-widest uppercase">
+          <span className="w-2 h-2 rounded-full bg-neon-emerald animate-pulse shadow-lg" style={{boxShadow: "0 0 10px rgba(95, 149, 152, 0.8)"}} />
+          <span className="text-xs text-muted-foreground tracking-widest uppercase font-semibold">
             Digital Excellence
           </span>
         </motion.div>
@@ -122,7 +125,7 @@ const Hero = ({ onOpenContact }: HeroProps) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-10"
+          className="text-xl md:text-2xl text-muted-foreground max-w-xl mx-auto mb-10 font-light leading-relaxed"
         >
           We handle digital, you handle the business.
         </motion.p>
@@ -134,10 +137,16 @@ const Hero = ({ onOpenContact }: HeroProps) => {
           transition={{ duration: 0.6, delay: 0.7 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <button onClick={() => navigate('/contact')} className="btn-primary px-6 py-3 sm:px-8 sm:py-4">
+          <button 
+            onClick={() => navigate('/contact')} 
+            className="btn-primary px-8 py-4 sm:px-10 sm:py-4 text-base font-semibold shadow-2xl"
+          >
             Start Your Project
           </button>
-          <a href="#work" className="btn-ghost px-6 py-3 sm:px-8 sm:py-4">
+          <a 
+            href="#work" 
+            className="btn-ghost px-8 py-4 sm:px-10 sm:py-4 text-base font-semibold"
+          >
             View Our Work
           </a>
         </motion.div>
@@ -158,7 +167,6 @@ const Hero = ({ onOpenContact }: HeroProps) => {
           transition={{ duration: 2, repeat: Infinity }}
           className="flex flex-col items-center gap-2 text-muted-foreground"
         >
-          <span className="text-xs tracking-widest uppercase">Scroll</span>
           <ArrowDown className="w-4 h-4" />
         </motion.div>
       </motion.div>
