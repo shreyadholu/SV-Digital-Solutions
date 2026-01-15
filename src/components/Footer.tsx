@@ -1,12 +1,14 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Mail, Instagram, ArrowUp } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 interface FooterProps {
-  onOpenContact: () => void;
+  onOpenContact?: () => void;
 }
 
 const Footer = ({ onOpenContact }: FooterProps) => {
+  const navigate = useNavigate();
+  
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -38,7 +40,7 @@ const Footer = ({ onOpenContact }: FooterProps) => {
               Let's create something extraordinary together. Reach out and let's discuss your vision.
             </p>
             <button
-              onClick={onOpenContact}
+              onClick={() => navigate('/contact')}
               className="btn-primary inline-flex items-center gap-2"
             >
               Get in Touch

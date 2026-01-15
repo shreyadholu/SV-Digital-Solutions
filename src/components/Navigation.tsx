@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import ContactModal from "./ContactModal";
+import { useNavigate } from "react-router-dom";
 
 const Navigation = () => {
+  const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isContactOpen, setIsContactOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,7 +58,7 @@ const Navigation = () => {
               </a>
             ))}
             <button 
-              onClick={() => setIsContactOpen(true)} 
+              onClick={() => navigate('/contact')} 
               className="btn-ghost text-sm py-3 px-6 border-neon-emerald/30 hover:border-neon-emerald"
             >
               Let's Talk
@@ -99,7 +99,7 @@ const Navigation = () => {
             <button
               onClick={() => {
                 setIsMobileMenuOpen(false);
-                setIsContactOpen(true);
+                navigate('/contact');
               }}
               className="btn-primary text-center mt-4"
             >
@@ -109,7 +109,6 @@ const Navigation = () => {
         </motion.div>
       </motion.header>
 
-      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
     </>
   );
 };

@@ -1,10 +1,11 @@
 /*  */import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { useRef, Suspense } from "react";
+import { useNavigate } from "react-router-dom";
 import ParticleSphere from "./ParticleSphere";
 
 interface HeroProps {
-  onOpenContact: () => void;
+  onOpenContact?: () => void;
 }
 
 // Stats component
@@ -37,6 +38,7 @@ const Stats = () => {
 };
 
 const Hero = ({ onOpenContact }: HeroProps) => {
+  const navigate = useNavigate();
   const sectionRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -132,7 +134,7 @@ const Hero = ({ onOpenContact }: HeroProps) => {
           transition={{ duration: 0.6, delay: 0.7 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <button onClick={onOpenContact} className="btn-primary px-6 py-3 sm:px-8 sm:py-4">
+          <button onClick={() => navigate('/contact')} className="btn-primary px-6 py-3 sm:px-8 sm:py-4">
             Start Your Project
           </button>
           <a href="#work" className="btn-ghost px-6 py-3 sm:px-8 sm:py-4">
