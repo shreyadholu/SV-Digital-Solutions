@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Mail, Instagram, ArrowUp } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface FooterProps {
   onOpenContact: () => void;
@@ -11,11 +12,10 @@ const Footer = ({ onOpenContact }: FooterProps) => {
   };
 
   return (
-     <footer
-        id="contact"
-        className="py-20 border-t border-border relative overflow-hidden pointer-events-auto z-20"
-      >
-
+    <footer
+      id="contact"
+      className="py-20 border-t border-border relative overflow-hidden pointer-events-auto z-20"
+    >
       {/* Background Watermark */}
       <div className="watermark bottom-0 right-0 translate-x-1/4 translate-y-1/4 z-0">
         SV
@@ -61,12 +61,21 @@ const Footer = ({ onOpenContact }: FooterProps) => {
               <ul className="space-y-4">
                 {["Services", "Work", "Process", "Contact"].map((item) => (
                   <li key={item}>
-                    <a
-                      href={`#${item.toLowerCase()}`}
-                      className="text-muted-foreground hover:text-foreground transition-colors duration-300"
-                    >
-                      {item}
-                    </a>
+                    {item === "Contact" ? (
+                      <Link
+                        to="/contact"
+                        className="text-muted-foreground hover:text-foreground transition-colors duration-300"
+                      >
+                        {item}
+                      </Link>
+                    ) : (
+                      <a
+                        href={`#${item.toLowerCase()}`}
+                        className="text-muted-foreground hover:text-foreground transition-colors duration-300"
+                      >
+                        {item}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -86,9 +95,14 @@ const Footer = ({ onOpenContact }: FooterProps) => {
                     hello@svdigital.com
                   </a>
                 </li>
+
                 <li>
-                  <a href="https://www.instagram.com/sv_digital_solutions" target="_blank" rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors duration-300">
+                  <a
+                    href="https://www.instagram.com/sv_digital_solutions"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors duration-300"
+                  >
                     <Instagram className="w-4 h-4" />
                     Instagram
                   </a>
@@ -103,7 +117,7 @@ const Footer = ({ onOpenContact }: FooterProps) => {
           <p className="text-muted-foreground text-sm">
             © 2024 SV Digital Solutions. All rights reserved.
           </p>
-          
+
           {/* Back to Top */}
           <button
             onClick={scrollToTop}

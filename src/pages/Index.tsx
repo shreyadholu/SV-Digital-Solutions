@@ -2,7 +2,7 @@ import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import CylindricalMarquee from "@/components/CylindricalMarquee";
-import BentoServices from "@/components/BentoServices";
+import Services from "@/components/Services";
 import Process from "@/components/Process";
 import Portfolio from "@/components/Portfolio";
 import Footer from "@/components/Footer";
@@ -19,7 +19,7 @@ const Index = () => {
       <Navigation />
       <Hero onOpenContact={() => setIsContactOpen(true)} />
       <CylindricalMarquee />
-      <BentoServices />
+      <Services />
       <Process />
       <Portfolio />
       <Footer onOpenContact={() => setIsContactOpen(true)} />
