@@ -105,7 +105,7 @@ const Hero = ({ onOpenContact }: HeroProps) => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-4xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter mb-6 px-4 leading-[1.1]"
+          className="text-hero mb-6 px-4 leading-[1.1]"
         >
           <span className="text-foreground">Building </span>
           <span className="text-gradient-emerald italic inline-block pr-[0.15em] overflow-visible">

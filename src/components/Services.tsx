@@ -74,18 +74,18 @@ const ServiceCard = ({
     >
       {/* Icon */}
       <div className="mb-6">
-        <div className="w-14 h-14 rounded-2xl bg-secondary/50 flex items-center justify-center group-hover:bg-neon-emerald/10 transition-colors duration-300">
+        <div className="w-14 h-14 rounded-2xl bg-neon-emerald/5 flex items-center justify-center group-hover:bg-neon-emerald/15 transition-all duration-300 border border-neon-emerald/20 group-hover:border-neon-emerald/40">
           <service.icon className="w-7 h-7 text-neon-emerald" />
         </div>
       </div>
 
       {/* Title */}
-      <h3 className="text-2xl font-bold text-foreground mb-3 tracking-tight">
+      <h3 className="text-2xl font-bold text-foreground mb-3 tracking-tight group-hover:text-neon-emerald transition-colors duration-300">
         {service.title}
       </h3>
 
       {/* Description */}
-      <p className="text-muted-foreground leading-relaxed mb-6">
+      <p className="text-muted-foreground leading-relaxed mb-6 text-sm">
         {service.description}
       </p>
 
@@ -94,7 +94,7 @@ const ServiceCard = ({
         {service.tags.map((tag) => (
           <span
             key={tag}
-            className="px-3 py-1 text-xs font-medium rounded-full bg-secondary text-muted-foreground border border-border"
+            className="px-3 py-1 text-xs font-medium rounded-full bg-neon-emerald/5 text-muted-foreground border border-neon-emerald/20 hover:border-neon-emerald/40 hover:text-neon-emerald transition-all duration-300"
           >
             {tag}
           </span>
@@ -109,7 +109,7 @@ const Services = () => {
   const isHeaderInView = useInView(headerRef, { once: true, margin: "-100px" });
 
   return (
-    <section id="services" className="py-32 relative">
+    <section id="services" className="py-20 relative">
       {/* Watermark */}
       <div className="watermark -top-20 -right-20 rotate-12">S</div>
 

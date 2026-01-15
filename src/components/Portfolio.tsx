@@ -66,48 +66,48 @@ const ProjectCard = ({
         index === 0 || index === 3 ? "md:col-span-2" : "md:col-span-1"
       }`}
     >
-      <div className="block portfolio-image aspect-[16/10] bg-card relative cursor-pointer project-card-hover">
+      <div className="block portfolio-image aspect-[16/10] bg-card relative cursor-pointer overflow-hidden rounded-3xl">
         <img
           src={project.image}
           alt={project.title}
           className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
         />
         
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-deep-navy/95 via-deep-navy/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        {/* Enhanced Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-void-black/98 via-void-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         
         {/* Content */}
         <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-          {/* Service badge */}
-          <span className="inline-flex items-center gap-1 text-muted-sage text-xs font-medium tracking-wide mb-2 bg-secondary/50 backdrop-blur-sm px-3 py-1 rounded-full w-fit">
+          {/* Service badge - enhanced */}
+          <span className="inline-flex items-center gap-1 text-neon-emerald text-xs font-semibold tracking-wider mb-2 bg-neon-emerald/10 backdrop-blur-md px-3 py-2 rounded-full w-fit border border-neon-emerald/30">
             {project.service}
           </span>
           
           <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2 tracking-tight">
             {project.title}
           </h3>
-          <p className="text-muted-foreground text-sm md:text-base mb-3">
+          <p className="text-muted-foreground text-sm md:text-base mb-4 line-clamp-2">
             {project.description}
           </p>
           
-          {/* Result */}
-          <div className="flex items-center gap-2 text-muted-sage text-sm font-medium mb-4">
+          {/* Result - enhanced */}
+          <div className="flex items-center gap-2 text-neon-emerald text-sm font-semibold mb-4">
             <TrendingUp className="w-4 h-4" />
             <span>{project.result}</span>
           </div>
           
           <a
             href={project.link}
-            className="inline-flex items-center gap-2 text-primary font-medium hover:underline w-fit"
+            className="inline-flex items-center gap-2 text-neon-emerald font-semibold hover:text-white transition-colors duration-300 group/link w-fit"
           >
             <span>View Live Site</span>
-            <ExternalLink className="w-4 h-4" />
+            <ExternalLink className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
           </a>
         </div>
 
-        {/* Corner Icon */}
-        <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-foreground/10 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <ExternalLink className="w-4 h-4 text-foreground" />
+        {/* Corner Icon - enhanced */}
+        <div className="absolute top-6 right-6 w-12 h-12 rounded-full bg-neon-emerald/10 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-neon-emerald/30 group-hover:border-neon-emerald/60">
+          <ExternalLink className="w-5 h-5 text-neon-emerald" />
         </div>
       </div>
     </motion.div>
@@ -119,7 +119,7 @@ const Portfolio = () => {
   const isHeaderInView = useInView(headerRef, { once: true, margin: "-100px" });
 
   return (
-    <section id="work" className="py-32 relative">
+    <section id="work" className="py-20 relative">
       {/* Watermark */}
       <div className="watermark top-40 -left-32 -rotate-12">V</div>
 

@@ -51,15 +51,15 @@ const Navigation = () => {
               <a
                 key={link.label}
                 href={link.href}
-                className="relative text-muted-foreground hover:text-foreground transition-colors duration-300 text-sm font-medium tracking-wide group"
+                className="relative text-muted-foreground hover:text-neon-emerald transition-colors duration-300 text-sm font-semibold tracking-wide group"
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-neon-emerald transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-2 left-0 w-0 h-1 bg-gradient-to-r from-neon-emerald to-neon-emerald/50 transition-all duration-300 group-hover:w-full rounded-full" />
               </a>
             ))}
             <button 
               onClick={() => navigate('/contact')} 
-              className="btn-ghost text-sm py-3 px-6 border-neon-emerald/30 hover:border-neon-emerald"
+              className="btn-ghost text-sm py-3 px-6"
             >
               Let's Talk
             </button>
