@@ -324,13 +324,13 @@
 
   /* Enhanced text styles */
   .text-hero {
-    @apply text-4xl md:text-7xl lg:text-8xl font-extrabold;
+    @apply text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-extrabold;
     letter-spacing: -0.03em;
     line-height: 1.1;
   }
 
   .text-section {
-    @apply text-3xl md:text-5xl lg:text-6xl font-extrabold;
+    @apply text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-extrabold;
     letter-spacing: -0.02em;
   }
 

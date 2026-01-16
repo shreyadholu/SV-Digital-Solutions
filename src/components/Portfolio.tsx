@@ -89,16 +89,16 @@ const ProjectCard = ({
             {project.service}
           </span>
           
-          <h3 className="text-3xl md:text-4xl font-extrabold text-foreground mb-3 tracking-tight">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground mb-3 tracking-tight">
             {project.title}
           </h3>
-          <p className="text-muted-foreground text-base mb-5 line-clamp-2 font-light">
+          <p className="text-muted-foreground text-sm sm:text-base mb-5 line-clamp-2 font-light">
             {project.description}
           </p>
-          
+
           {/* Result - premium */}
-          <div className="flex items-center gap-2 text-neon-emerald text-base font-bold mb-5 tracking-wide">
-            <TrendingUp className="w-5 h-5" />
+          <div className="flex items-center gap-2 text-neon-emerald text-sm sm:text-base font-bold mb-5 tracking-wide">
+            <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5" />
             <span>{project.result}</span>
           </div>
           
@@ -135,12 +135,12 @@ const Portfolio = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-16 sm:mb-20"
         >
           <p className="text-muted-sage text-sm tracking-[0.3em] uppercase mb-4">
             Featured Work
           </p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter">
             Our Portfolio
           </h2>
         </motion.div>

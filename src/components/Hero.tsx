@@ -21,14 +21,14 @@ const Stats = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 1 }}
-      className="flex flex-wrap justify-center gap-8 md:gap-16 mt-20"
+      className="flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-16 mt-16 sm:mt-20"
     >
       {stats.map((stat, index) => (
         <div key={index} className="text-center">
-          <div className="text-3xl md:text-4xl font-bold text-gradient-emerald mb-1">
+          <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-gradient-emerald mb-1">
             {stat.value}
           </div>
-          <div className="text-xs md:text-sm text-muted-foreground tracking-wide">
+          <div className="text-xs sm:text-sm text-muted-foreground tracking-wide">
             {stat.label}
           </div>
         </div>
@@ -137,15 +137,15 @@ const Hero = ({ onOpenContact }: HeroProps) => {
           transition={{ duration: 0.6, delay: 0.7 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <button 
-            onClick={() => navigate('/contact')} 
-            className="btn-primary px-8 py-4 sm:px-10 sm:py-4 text-base font-semibold shadow-2xl"
+          <button
+            onClick={() => navigate('/contact')}
+            className="btn-primary px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-4 text-base font-semibold shadow-2xl"
           >
             Start Your Project
           </button>
-          <a 
-            href="#work" 
-            className="btn-ghost px-8 py-4 sm:px-10 sm:py-4 text-base font-semibold"
+          <a
+            href="#work"
+            className="btn-ghost px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-4 text-base font-semibold"
           >
             View Our Work
           </a>

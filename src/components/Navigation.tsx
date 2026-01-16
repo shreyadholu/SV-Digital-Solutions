@@ -41,7 +41,7 @@ const Navigation = () => {
           <img
             src="/sv-digi-solution-logo.png"
             alt="SV Digital Solutions"
-            className="h-9 md:h-10 w-auto transition-all duration-300"
+            className="h-8 sm:h-9 md:h-10 w-auto transition-all duration-300"
             style={{filter: "drop-shadow(0 0 15px rgba(95, 149, 152, 0.3))"}}
           />
          </a>
@@ -92,7 +92,7 @@ const Navigation = () => {
                 key={link.label}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-foreground text-lg font-medium py-2 hover:text-neon-emerald transition-colors"
+                className="text-foreground text-base font-medium py-2 hover:text-neon-emerald transition-colors"
               >
                 {link.label}
               </a>

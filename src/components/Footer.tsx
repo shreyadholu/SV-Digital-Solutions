@@ -39,7 +39,7 @@ const Footer = ({ onOpenContact }: FooterProps) => {
               Ready to start
               <span className="block text-gradient-emerald">your project?</span>
             </h2>
-            <p className="text-muted-foreground text-lg mb-8 max-w-md leading-relaxed">
+            <p className="text-muted-foreground text-base sm:text-lg mb-8 max-w-md leading-relaxed">
               Let's create something extraordinary together. Reach out and let's discuss your vision.
             </p>
             <button

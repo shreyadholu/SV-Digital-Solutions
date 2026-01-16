@@ -120,12 +120,12 @@ const Services = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-16 sm:mb-20"
         >
           <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-4">
             What We Do
           </p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter">
             Our <span className="text-gradient-emerald">Services</span>
           </h2>
         </motion.div>
