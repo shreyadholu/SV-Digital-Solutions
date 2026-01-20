@@ -13,7 +13,9 @@ const ParticleCloud = () => {
   
   // Generate sphere points with golden ratio distribution for even spacing
   const particles = useMemo(() => {
-    const count = 4000;
+    // Reduce particle count on mobile for better performance
+    const isMobile = window.innerWidth < 768;
+    const count = isMobile ? 1500 : 4000;
     const positions = new Float32Array(count * 3);
     const colors = new Float32Array(count * 3);
     

@@ -1,4 +1,4 @@
-import { useState } from "react";
+  import { useState } from "react";
 import { motion } from "framer-motion";
 import { Send, CheckCircle, ArrowLeft } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -12,9 +12,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import emailjs from '@emailjs/browser';
+import { EMAILJS_CONFIG } from '@/lib/emailjs-config';
 
 const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -23,10 +26,41 @@ const Contact = () => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setIsLoading(true);
+
+  try {
+    await emailjs.send(
+      EMAILJS_CONFIG.SERVICE_ID,
+      EMAILJS_CONFIG.TEMPLATE_ID,
+      {
+        from_name: formData.name,
+        from_email: formData.email,
+        project_type: formData.projectType,
+        budget: formData.budget,
+        message: formData.message,
+        subject: `New Contact Form Submission from ${formData.name}`,
+      },
+      EMAILJS_CONFIG.PUBLIC_KEY
+    );
+
     setIsSubmitted(true);
-  };
+    setFormData({
+      name: "",
+      email: "",
+      projectType: "",
+      budget: "",
+      message: "",
+    });
+  } catch (error) {
+    console.error("EmailJS error:", error);
+    alert("Failed to send message. Please try again.");
+  } finally {
+    setIsLoading(false);
+  }
+};
+
 
   const handleReset = () => {
     setIsSubmitted(false);
@@ -183,9 +217,13 @@ const Contact = () => {
                     />
                   </div>
 
-                  <button type="submit" className="btn-primary w-full flex items-center justify-center gap-2">
-                    <span>Send Message</span>
-                    <Send className="w-4 h-4" />
+                  <button
+                    type="submit"
+                    disabled={isLoading}
+                    className="btn-primary w-full flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    <span>{isLoading ? 'Sending...' : 'Send Message'}</span>
+                    <Send className={`w-4 h-4 ${isLoading ? 'animate-spin' : ''}`} />
                   </button>
                 </form>
               </motion.div>

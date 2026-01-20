@@ -49,7 +49,7 @@ const Hero = ({ onOpenContact }: HeroProps) => {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 sm:pt-20 md:pt-0">
       {/* 3D Particle Sphere Background */}
       <Suspense fallback={<div className="absolute inset-0 bg-void-black" />}>
         <ParticleSphere />
@@ -139,13 +139,13 @@ const Hero = ({ onOpenContact }: HeroProps) => {
         >
           <button
             onClick={() => navigate('/contact')}
-            className="btn-primary px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-4 text-base font-semibold shadow-2xl"
+            className="btn-primary px-4 py-2 sm:px-8 sm:py-4 md:px-10 md:py-4 text-base font-semibold shadow-2xl"
           >
             Start Your Project
           </button>
           <a
             href="#work"
-            className="btn-ghost px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-4 text-base font-semibold"
+            className="btn-ghost px-4 py-2 sm:px-8 sm:py-4 md:px-10 md:py-4 text-base font-semibold"
           >
             View Our Work
           </a>

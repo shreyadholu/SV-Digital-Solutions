@@ -70,8 +70,12 @@ const ServiceCard = ({
       initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
       transition={{ duration: 0.6, delay: index * 0.08 }}
-      className="card-glass group"
+      className="relative group"
     >
+      {/* Background glow */}
+      <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-neon-emerald/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+      <div className="relative bg-card/60 backdrop-blur-lg rounded-3xl p-8 border border-border/60 group-hover:border-neon-emerald/40 transition-all duration-500">
       {/* Icon */}
       <div className="mb-6">
         <div className="w-16 h-16 rounded-2xl bg-neon-emerald/8 flex items-center justify-center group-hover:bg-neon-emerald/20 transition-all duration-300 border border-neon-emerald/30 group-hover:border-neon-emerald/60 shadow-lg">
@@ -99,6 +103,7 @@ const ServiceCard = ({
             {tag}
           </span>
         ))}
+      </div>
       </div>
     </motion.div>
   );
