@@ -16,7 +16,7 @@ const Index = () => {
 
   return (
     <main className="min-h-screen bg-void-black text-foreground overflow-x-hidden">
-      <Navigation />
+      <Navigation onOpenContact={() => setIsContactOpen(true)} />
       <Hero onOpenContact={() => setIsContactOpen(true)} />
       <CylindricalMarquee />
       <Services />
