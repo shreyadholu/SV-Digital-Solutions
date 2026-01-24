@@ -1,74 +1,74 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, ExternalLink, TrendingUp, ArrowRight } from "lucide-react";
+import { ArrowLeft, ExternalLink, TrendingUp, ArrowRight, Layers, Code2 } from "lucide-react";
 import Footer from "@/components/Footer";
 
 const projects = [
     {
         id: 1,
+        title: "Vaidik Enterprises",
+        category: "Construction Website",
+        service: "Full Website Development",
+        result: "Professional Online Presence",
+        description: "Modern construction company website featuring project portfolios, service showcases, and seamless contact integration. Built for performance and device compatibility.",
+        image: "/projects/VE.png",
+        technologies: ["HTML", "Tailwind CSS", "JavaScript"],
+        link: "https://vaidik-enterprises.vercel.app/",
+    },
+    {
+        id: 2,
+        title: "VastraKalā",
+        category: "E-Commerce",
+        service: "Custom E-Commerce Platform",
+        result: "1000+ Customer Reviews",
+        description: "Elegant custom stitching platform for ethnic wear. Features catalog browsing, direct WhatsApp order integration, and a seamless mobile-first experience.",
+        image: "/projects/vk.png",
+        technologies: ["HTML", "CSS", "JavaScript", "WhatsApp API"],
+        link: "https://vastrakala.vercel.app/",
+    },
+    {
+        id: 3,
         title: "E-Commerce Platform",
-        category: "Web Development",
+        category: "Web Application",
         service: "UI/UX & Frontend",
-        result: "Increased conversion by 45%",
-        description: "A modern shopping experience with seamless checkout flow. Built with React and optimized for performance.",
+        result: "45% Conversion Increase",
+        description: "A high-performance shopping experience with seamless checkout flow, optimized for speed and conversion rates.",
         image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
         technologies: ["React", "Node.js", "Stripe"],
         link: "#",
     },
     {
-        id: 2,
+        id: 4,
         title: "SaaS Dashboard",
-        category: "UI/UX Design",
+        category: "Product Design",
         service: "Full Design System",
-        result: "Reduced churn by 30%",
-        description: "Analytics dashboard for enterprise clients with real-time data visualization and intuitive controls.",
+        result: "30% Churn Reduction",
+        description: "Comprehensive analytics dashboard for enterprise clients featuring real-time data visualization and intuitive navigation controls.",
         image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
         technologies: ["Figma", "React", "D3.js"],
         link: "#",
     },
     {
-        id: 3,
-        title: "Mobile Banking App",
-        category: "Full-Stack",
-        service: "End-to-End Development",
-        result: "1M+ downloads in 6 months",
-        description: "Secure fintech application with real-time transactions and biometric authentication.",
-        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=600&fit=crop",
-        technologies: ["React Native", "Node.js", "PostgreSQL"],
-        link: "#",
-    },
-    {
-        id: 4,
+        id: 5,
         title: "Brand Identity System",
-        category: "Design System",
+        category: "Branding",
         service: "Brand Strategy & Design",
-        result: "200% brand recognition increase",
-        description: "Complete visual identity for tech startup including logo, guidelines, and marketing assets.",
+        result: "200% Recognition Boost",
+        description: "Complete visual identity for a tech startup including logo design, brand guidelines, typography system, and marketing assets.",
         image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&h=600&fit=crop",
         technologies: ["Illustrator", "Figma", "After Effects"],
         link: "#",
     },
     {
-        id: 5,
-        title: "Restaurant Ordering System",
-        category: "Web & Mobile",
-        service: "Full-Stack Development",
-        result: "40% increase in orders",
-        description: "Online ordering platform with real-time kitchen updates and delivery tracking.",
-        image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop",
-        technologies: ["Next.js", "Firebase", "Stripe"],
-        link: "#",
-    },
-    {
         id: 6,
-        title: "Fitness Tracking App",
-        category: "Mobile Development",
-        service: "iOS & Android",
-        result: "500K+ active users",
-        description: "Health and fitness app with workout tracking, nutrition planning, and social features.",
-        image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop",
-        technologies: ["Flutter", "Firebase", "HealthKit"],
+        title: "Mobile Banking App",
+        category: "Fintech",
+        service: "End-to-End Development",
+        result: "1M+ App Downloads",
+        description: "Secure fintech application with real-time transaction processing, biometric authentication, and financial planning tools.",
+        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=600&fit=crop",
+        technologies: ["React Native", "Node.js", "PostgreSQL"],
         link: "#",
     },
 ];
@@ -86,66 +86,80 @@ const ProjectCard = ({
     return (
         <motion.div
             ref={ref}
-            initial={{ opacity: 0, y: 60 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
-            transition={{ duration: 0.7, delay: index * 0.1 }}
-            className="group relative"
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+            transition={{ duration: 0.6, delay: index * 0.1 }}
+            className="group flex flex-col h-full bg-card/30 backdrop-blur-sm border border-border/50 rounded-3xl overflow-hidden hover:border-neon-emerald/40 hover:bg-card/50 transition-all duration-500"
         >
-            <div
-                className="block portfolio-image aspect-[16/10] bg-card relative cursor-pointer overflow-hidden rounded-3xl"
-                style={{ boxShadow: "0 0 80px rgba(0,0,0,0.5), inset 0 0 40px rgba(255,255,255,0.02)" }}
-            >
+            {/* Image Section - Always Visible */}
+            <div className="relative aspect-[16/10] overflow-hidden">
                 <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
 
-                {/* Premium Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-void-black/99 via-void-black/70 via-50% to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-void-black/80 to-transparent opacity-60" />
 
-                {/* Content */}
-                <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end translate-y-8 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                    {/* Service badge */}
-                    <span
-                        className="inline-flex items-center gap-1 text-neon-emerald text-xs font-bold tracking-widest mb-3 bg-neon-emerald/15 backdrop-blur-xl px-4 py-2 rounded-full w-fit border border-neon-emerald/50"
-                        style={{ boxShadow: "0 0 20px rgba(95, 149, 152, 0.3)" }}
-                    >
-                        {project.service}
-                    </span>
+                {/* Floating Category Badge */}
+                <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-void-black/60 backdrop-blur-md border border-white/10 text-xs font-medium text-white/90 flex items-center gap-1.5">
+                    <Layers className="w-3 h-3 text-neon-emerald" />
+                    {project.category}
+                </div>
+            </div>
 
-                    <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-foreground mb-2 tracking-tight">
+            {/* Content Section - Always Visible */}
+            <div className="flex flex-col flex-grow p-6 md:p-8">
+                <div className="flex justify-between items-start gap-4 mb-4">
+                    <h3 className="text-xl md:text-2xl font-bold text-foreground tracking-tight group-hover:text-neon-emerald transition-colors duration-300">
                         {project.title}
                     </h3>
-                    <p className="text-muted-foreground text-sm mb-4 line-clamp-2 font-light">
-                        {project.description}
-                    </p>
-
-                    {/* Technologies */}
-                    <div className="flex flex-wrap gap-2 mb-4">
-                        {project.technologies.map((tech) => (
-                            <span
-                                key={tech}
-                                className="px-2 py-1 text-xs rounded-full bg-secondary/50 text-muted-foreground"
-                            >
-                                {tech}
-                            </span>
-                        ))}
-                    </div>
-
-                    {/* Result */}
-                    <div className="flex items-center gap-2 text-neon-emerald text-sm font-bold tracking-wide">
-                        <TrendingUp className="w-4 h-4" />
-                        <span>{project.result}</span>
-                    </div>
+                    <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 rounded-full bg-secondary/50 hover:bg-neon-emerald text-muted-foreground hover:text-white transition-all duration-300"
+                        aria-label={`Visit ${project.title}`}
+                    >
+                        <ExternalLink className="w-5 h-5" />
+                    </a>
                 </div>
 
-                {/* Corner Icon */}
-                <div
-                    className="absolute top-6 right-6 w-12 h-12 rounded-full bg-neon-emerald/20 backdrop-blur-xl flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-neon-emerald/50"
-                    style={{ boxShadow: "0 0 30px rgba(95, 149, 152, 0.4)" }}
-                >
-                    <ExternalLink className="w-5 h-5 text-neon-emerald" />
+                <p className="text-muted-foreground text-sm leading-relaxed mb-6 line-clamp-3">
+                    {project.description}
+                </p>
+
+                {/* Technologies */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                    {project.technologies.map((tech) => (
+                        <span
+                            key={tech}
+                            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-secondary/30 border border-border/50 text-xs font-medium text-muted-foreground"
+                        >
+                            <Code2 className="w-3 h-3 text-neon-emerald/70" />
+                            {tech}
+                        </span>
+                    ))}
+                </div>
+
+                <div className="mt-auto pt-6 border-t border-border/40 flex items-end justify-between gap-4">
+                    <div className="flex flex-col gap-1">
+                        <span className="text-xs uppercase tracking-wider text-muted-sage font-semibold">Impact</span>
+                        <div className="flex items-center gap-2 text-neon-emerald text-sm font-bold">
+                            <TrendingUp className="w-4 h-4" />
+                            <span>{project.result}</span>
+                        </div>
+                    </div>
+
+                    <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-ghost text-xs sm:text-sm px-4 py-2 border-neon-emerald/20 hover:border-neon-emerald/50 hover:bg-neon-emerald/5"
+                    >
+                        Visit Project
+                    </a>
                 </div>
             </div>
         </motion.div>
@@ -195,12 +209,12 @@ const Work = () => {
                             Our <span className="text-gradient-emerald">Portfolio</span>
                         </h1>
                         <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl mx-auto">
-                            A selection of projects that showcase our expertise in design and development.
+                            Explore our latest projects where design meets functionality to create exceptional digital experiences.
                         </p>
                     </motion.div>
 
                     {/* Projects Grid */}
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                         {projects.map((project, index) => (
                             <ProjectCard key={project.id} project={project} index={index} />
                         ))}
@@ -215,7 +229,7 @@ const Work = () => {
                         className="text-center mt-20"
                     >
                         <h2 className="text-2xl md:text-3xl font-bold mb-6">
-                            Want to be our next success story?
+                            Want to see your project here?
                         </h2>
                         <Link
                             to="/contact"

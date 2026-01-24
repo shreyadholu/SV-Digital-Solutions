@@ -1,47 +1,51 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, TrendingUp } from "lucide-react";
+import { ExternalLink, TrendingUp, Layers, Code2 } from "lucide-react";
 
 const projects = [
   {
     id: 1,
-    title: "E-Commerce Platform",
-    category: "Web Development",
-    service: "UI/UX & Frontend",
-    result: "Increased conversion by 45%",
-    description: "A modern shopping experience with seamless checkout flow",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-    link: "#",
+    title: "Vaidik Enterprises",
+    category: "Construction Website",
+    service: "Full Website Development",
+    result: "Professional Online Presence",
+    description: "Modern construction company website featuring project portfolios, service showcases, and seamless contact integration.",
+    image: "/projects/VE.png",
+    technologies: ["HTML", "Tailwind CSS", "JavaScript"],
+    link: "https://vaidik-enterprises.vercel.app/",
   },
   {
     id: 2,
-    title: "SaaS Dashboard",
-    category: "UI/UX Design",
-    service: "Full Design System",
-    result: "Reduced churn by 30%",
-    description: "Analytics dashboard for enterprise clients",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-    link: "#",
+    title: "VastraKalā",
+    category: "E-Commerce",
+    service: "Custom E-Commerce Platform",
+    result: "1000+ Customer Reviews",
+    description: "Elegant custom stitching platform for ethnic wear. Features catalog browsing, direct WhatsApp order integration.",
+    image: "/projects/vk.png",
+    technologies: ["HTML", "CSS", "JavaScript", "WhatsApp API"],
+    link: "https://vastrakala.vercel.app/",
   },
   {
     id: 3,
-    title: "Mobile Banking App",
-    category: "Full-Stack",
-    service: "End-to-End Development",
-    result: "1M+ downloads in 6 months",
-    description: "Secure fintech application with real-time transactions",
-    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=600&fit=crop",
+    title: "E-Commerce Platform",
+    category: "Web Application",
+    service: "UI/UX & Frontend",
+    result: "45% Conversion Increase",
+    description: "A modern shopping experience with seamless checkout flow. Built with React and optimized for performance.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+    technologies: ["React", "Node.js", "Stripe"],
     link: "#",
   },
   {
     id: 4,
-    title: "Brand Identity System",
-    category: "Design System",
-    service: "Brand Strategy & Design",
-    result: "200% brand recognition increase",
-    description: "Complete visual identity for tech startup",
-    image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&h=600&fit=crop",
+    title: "SaaS Dashboard",
+    category: "Product Design",
+    service: "Full Design System",
+    result: "30% Churn Reduction",
+    description: "Analytics dashboard for enterprise clients featuring real-time data visualization and intuitive navigation controls.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+    technologies: ["Figma", "React", "D3.js"],
     link: "#",
   },
 ];
@@ -59,61 +63,75 @@ const ProjectCard = ({
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 60 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
-      transition={{ duration: 0.7, delay: index * 0.1 }}
-      className={`group relative ${
-        index === 0 || index === 3 ? "md:col-span-2" : "md:col-span-1"
-      }`}
+      initial={{ opacity: 0, y: 40 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      className="group flex flex-col h-full bg-card/30 backdrop-blur-sm border border-border/50 rounded-3xl overflow-hidden hover:border-neon-emerald/40 hover:bg-card/50 transition-all duration-500"
     >
-      <div className="block portfolio-image aspect-[16/10] bg-card relative cursor-pointer overflow-hidden rounded-3xl" style={{boxShadow: "0 0 80px rgba(0,0,0,0.5), inset 0 0 40px rgba(255,255,255,0.02)"}}>
+      {/* Image Section */}
+      <div className="relative aspect-[16/10] overflow-hidden">
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-115"
+          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
         />
-        
-        {/* Premium Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-void-black/99 via-void-black/70 via-50% to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        
-        {/* Premium shine effect */}
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{
-          background: "linear-gradient(135deg, transparent 0%, hsl(160 100% 50% / 0.1) 50%, transparent 100%)",
-          animation: "shimmer 3s infinite"
-        }} />
-        
-        {/* Content */}
-        <div className="absolute inset-0 p-8 flex flex-col justify-end translate-y-8 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-          {/* Service badge - premium */}
-          <span className="inline-flex items-center gap-1 text-neon-emerald text-xs font-bold tracking-widest mb-3 bg-neon-emerald/15 backdrop-blur-xl px-4 py-2 rounded-full w-fit border border-neon-emerald/50" style={{boxShadow: "0 0 20px rgba(95, 149, 152, 0.3)"}}>
-            {project.service}
-          </span>
-          
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground mb-3 tracking-tight">
+
+        {/* Floating Category Badge */}
+        <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-void-black/60 backdrop-blur-md border border-white/10 text-xs font-medium text-white/90 flex items-center gap-1.5">
+          <Layers className="w-3 h-3 text-neon-emerald" />
+          {project.category}
+        </div>
+      </div>
+
+      {/* Content Section */}
+      <div className="flex flex-col flex-grow p-6">
+        <div className="flex justify-between items-start gap-4 mb-3">
+          <h3 className="text-xl font-bold text-foreground tracking-tight group-hover:text-neon-emerald transition-colors duration-300">
             {project.title}
           </h3>
-          <p className="text-muted-foreground text-sm sm:text-base mb-5 line-clamp-2 font-light">
-            {project.description}
-          </p>
-
-          {/* Result - premium */}
-          <div className="flex items-center gap-2 text-neon-emerald text-sm sm:text-base font-bold mb-5 tracking-wide">
-            <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5" />
-            <span>{project.result}</span>
-          </div>
-          
           <a
             href={project.link}
-            className="inline-flex items-center gap-2 text-neon-emerald font-bold hover:text-white transition-all duration-300 group/link w-fit text-lg"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-1.5 rounded-full bg-secondary/50 hover:bg-neon-emerald text-muted-foreground hover:text-white transition-all duration-300"
+            aria-label={`Visit ${project.title}`}
           >
-            <span>Explore Project</span>
-            <ExternalLink className="w-5 h-5 group-hover/link:translate-x-2 group-hover/link:translate-y-[-2px] transition-transform" />
+            <ExternalLink className="w-4 h-4" />
           </a>
         </div>
 
-        {/* Premium Corner Icon */}
-        <div className="absolute top-8 right-8 w-16 h-16 rounded-full bg-neon-emerald/20 backdrop-blur-xl flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-neon-emerald/50" style={{boxShadow: "0 0 30px rgba(95, 149, 152, 0.4)"}}>
-          <ExternalLink className="w-6 h-6 text-neon-emerald" />
+        <p className="text-muted-foreground text-sm leading-relaxed mb-5 line-clamp-3">
+          {project.description}
+        </p>
+
+        {/* Technologies */}
+        <div className="flex flex-wrap gap-2 mb-5">
+          {project.technologies.slice(0, 3).map((tech) => (
+            <span
+              key={tech}
+              className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-secondary/30 border border-border/50 text-[10px] font-medium text-muted-foreground"
+            >
+              <Code2 className="w-2.5 h-2.5 text-neon-emerald/70" />
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        <div className="mt-auto pt-4 border-t border-border/40 flex items-center justify-between gap-4">
+          <div className="flex items-center gap-2 text-neon-emerald text-xs font-bold">
+            <TrendingUp className="w-3.5 h-3.5" />
+            <span>{project.result}</span>
+          </div>
+
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs font-bold text-foreground hover:text-neon-emerald transition-colors flex items-center gap-1 group/btn"
+          >
+            Visit Project
+            <ExternalLink className="w-3 h-3 transition-transform group-hover/btn:translate-x-0.5" />
+          </a>
         </div>
       </div>
     </motion.div>
@@ -141,11 +159,11 @@ const Portfolio = () => {
             Featured Work
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter">
-            Our Portfolio
+            Our <span className="text-gradient-emerald">Portfolio</span>
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {projects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
