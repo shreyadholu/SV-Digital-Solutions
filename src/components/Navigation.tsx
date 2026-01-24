@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import ContactModal from "./ContactModal";
+import { useNavigate } from "react-router-dom";
 
 const Navigation = () => {
+  const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isContactOpen, setIsContactOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,8 +18,9 @@ const Navigation = () => {
 
   const navLinks = [
     { label: "Services", href: "#services" },
-    { label: "Work", href: "#work" },
     { label: "Process", href: "#process" },
+    { label: "Work", href: "#work" },
+    { label: "Contact", href: "/contact" },
   ];
 
   return (
@@ -29,17 +30,17 @@ const Navigation = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.6 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-            ? "nav-glass"
-            : "bg-transparent"
+          ? "nav-glass"
+          : "bg-transparent"
           }`}
       >
         <nav className="section-container py-5 flex items-center justify-between">
           {/* Logo */}
-          <a href="/" className="flex items-center group">
-            <div className="logo-sv text-3xl">
-              <span className="char-s">S</span>
-              <span className="char-v">V</span>
-            </div>
+          <a href="/" className="flex items-center gap-2 group">
+            <span className="text-2xl font-extrabold tracking-tighter">
+              <span className="text-foreground group-hover:text-neon-emerald transition-colors duration-300">SV</span>
+              <span className="text-gradient-emerald">.</span>
+            </span>
           </a>
 
           {/* Desktop Navigation */}
@@ -48,10 +49,10 @@ const Navigation = () => {
               <a
                 key={link.label}
                 href={link.href}
-                className="relative text-muted-foreground hover:text-foreground transition-colors duration-300 text-sm font-medium tracking-wide group"
+                className="relative text-muted-foreground hover:text-neon-emerald transition-colors duration-300 text-sm font-semibold tracking-wide group"
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-neon-emerald transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-2 left-0 w-0 h-1 bg-gradient-to-r from-neon-emerald to-neon-emerald/50 transition-all duration-300 group-hover:w-full rounded-full" />
               </a>
             ))}
             <button
@@ -88,7 +89,7 @@ const Navigation = () => {
                 key={link.label}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-foreground text-lg font-medium py-2 hover:text-neon-emerald transition-colors"
+                className="text-foreground text-base font-medium py-2 hover:text-neon-emerald transition-colors"
               >
                 {link.label}
               </a>
@@ -96,7 +97,7 @@ const Navigation = () => {
             <button
               onClick={() => {
                 setIsMobileMenuOpen(false);
-                setIsContactOpen(true);
+                navigate('/contact');
               }}
               className="btn-primary text-center mt-4"
             >
@@ -106,7 +107,6 @@ const Navigation = () => {
         </motion.div>
       </motion.header>
 
-      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
     </>
   );
 };

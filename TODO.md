@@ -1,0 +1,4 @@
+- [x] Reduce glow in .btn-primary:hover box-shadow
+- [x] Reduce glow in .btn-ghost:hover box-shadow
+- [x] Reduce glow in .card-glass:hover box-shadow
+- [ ] Run development server to test changes

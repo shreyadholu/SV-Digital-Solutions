@@ -59,21 +59,21 @@ const ProcessStep = ({
           className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
         />
 
-        <div className="relative bg-card/50 backdrop-blur-sm rounded-3xl p-8 border border-border/50 group-hover:border-muted-sage/50 transition-all duration-500">
-          {/* Step number */}
-          <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-secondary flex items-center justify-center border border-border">
-            <span className="text-muted-sage font-bold text-sm">{step.number}</span>
+        <div className="relative bg-card/60 backdrop-blur-lg rounded-3xl p-8 border border-border/60 group-hover:border-neon-emerald/40 transition-all duration-500">
+          {/* Step number - enhanced styling */}
+          <div className="absolute -top-5 -left-5 w-12 h-12 rounded-full bg-neon-emerald/10 flex items-center justify-center border-2 border-neon-emerald/30 group-hover:border-neon-emerald/80 transition-all duration-300 font-bold text-neon-emerald text-sm">
+            {step.number}
           </div>
 
-          {/* Icon */}
-          <div className="w-16 h-16 rounded-2xl bg-secondary/50 flex items-center justify-center mb-6 group-hover:bg-muted-sage/20 transition-colors duration-300">
-            <step.icon className="w-8 h-8 text-muted-sage" />
+          {/* Icon - enhanced */}
+          <div className="w-16 h-16 rounded-2xl bg-neon-emerald/5 flex items-center justify-center mb-6 group-hover:bg-neon-emerald/15 transition-all duration-300 border border-neon-emerald/20 group-hover:border-neon-emerald/40">
+            <step.icon className="w-8 h-8 text-neon-emerald" />
           </div>
 
-          <h3 className="text-2xl font-bold text-foreground mb-4 tracking-tight">
+          <h3 className="text-2xl font-bold text-foreground mb-4 tracking-tight group-hover:text-neon-emerald transition-colors duration-300">
             {step.title}
           </h3>
-          <p className="text-muted-foreground leading-relaxed">
+          <p className="text-muted-foreground leading-relaxed text-sm">
             {step.description}
           </p>
         </div>
@@ -87,7 +87,7 @@ const Process = () => {
   const isHeaderInView = useInView(headerRef, { once: true, margin: "-100px" });
 
   return (
-    <section id="process" className="py-32 relative">
+    <section id="process" className="py-20 relative">
       {/* Watermark */}
       <div className="watermark top-20 right-0 translate-x-1/4 rotate-12">P</div>
 

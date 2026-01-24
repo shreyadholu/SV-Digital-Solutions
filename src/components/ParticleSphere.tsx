@@ -13,7 +13,9 @@ const ParticleCloud = () => {
   
   // Generate sphere points with golden ratio distribution for even spacing
   const particles = useMemo(() => {
-    const count = 4000;
+    // Reduce particle count on mobile for better performance
+    const isMobile = window.innerWidth < 768;
+    const count = isMobile ? 1500 : 4000;
     const positions = new Float32Array(count * 3);
     const colors = new Float32Array(count * 3);
     
@@ -113,19 +115,26 @@ const ParticleCloud = () => {
 
 const ParticleSphere = () => {
   return (
-    <div className="absolute inset-0 z-0">
-      <Canvas
-        camera={{ position: [0, 0, 5], fov: 60 }}
-        style={{ background: "transparent" }}
-        gl={{ alpha: true, antialias: true, powerPreference: "high-performance" }}
-        dpr={[1, 2]}
-      >
-        <ambientLight intensity={0.4} />
-        <pointLight position={[10, 10, 10]} intensity={0.3} color="#10b981" />
-        <pointLight position={[-10, -10, -10]} intensity={0.2} color="#d4af37" />
-        <ParticleCloud />
-      </Canvas>
+    <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
       
+      {/* RESPONSIVE SPHERE WRAPPER */}
+      <div className="sphere-wrapper">
+        <Canvas
+          camera={{
+            position: window.innerWidth < 768 ? [0, 0, 4.2] : [0, 0, 5],
+            fov: 60
+          }}
+          style={{ background: "transparent" }}
+          gl={{ alpha: true, antialias: true, powerPreference: "high-performance" }}
+          dpr={[1, 2]}
+        >
+          <ambientLight intensity={0.4} />
+          <pointLight position={[10, 10, 10]} intensity={0.3} color="#10b981" />
+          <pointLight position={[-10, -10, -10]} intensity={0.2} color="#d4af37" />
+          <ParticleCloud />
+        </Canvas>
+      </div>
+
       {/* Soft glow overlay */}
       <div 
         className="absolute inset-0 pointer-events-none"
@@ -136,5 +145,6 @@ const ParticleSphere = () => {
     </div>
   );
 };
+
 
 export default ParticleSphere;

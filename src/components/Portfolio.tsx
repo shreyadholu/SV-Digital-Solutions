@@ -66,48 +66,54 @@ const ProjectCard = ({
         index === 0 || index === 3 ? "md:col-span-2" : "md:col-span-1"
       }`}
     >
-      <div className="block portfolio-image aspect-[16/10] bg-card relative cursor-pointer project-card-hover">
+      <div className="block portfolio-image aspect-[16/10] bg-card relative cursor-pointer overflow-hidden rounded-3xl" style={{boxShadow: "0 0 80px rgba(0,0,0,0.5), inset 0 0 40px rgba(255,255,255,0.02)"}}>
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-115"
         />
         
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-deep-navy/95 via-deep-navy/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        {/* Premium Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-void-black/99 via-void-black/70 via-50% to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        
+        {/* Premium shine effect */}
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{
+          background: "linear-gradient(135deg, transparent 0%, hsl(160 100% 50% / 0.1) 50%, transparent 100%)",
+          animation: "shimmer 3s infinite"
+        }} />
         
         {/* Content */}
-        <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-          {/* Service badge */}
-          <span className="inline-flex items-center gap-1 text-muted-sage text-xs font-medium tracking-wide mb-2 bg-secondary/50 backdrop-blur-sm px-3 py-1 rounded-full w-fit">
+        <div className="absolute inset-0 p-8 flex flex-col justify-end translate-y-8 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+          {/* Service badge - premium */}
+          <span className="inline-flex items-center gap-1 text-neon-emerald text-xs font-bold tracking-widest mb-3 bg-neon-emerald/15 backdrop-blur-xl px-4 py-2 rounded-full w-fit border border-neon-emerald/50" style={{boxShadow: "0 0 20px rgba(95, 149, 152, 0.3)"}}>
             {project.service}
           </span>
           
-          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2 tracking-tight">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground mb-3 tracking-tight">
             {project.title}
           </h3>
-          <p className="text-muted-foreground text-sm md:text-base mb-3">
+          <p className="text-muted-foreground text-sm sm:text-base mb-5 line-clamp-2 font-light">
             {project.description}
           </p>
-          
-          {/* Result */}
-          <div className="flex items-center gap-2 text-muted-sage text-sm font-medium mb-4">
-            <TrendingUp className="w-4 h-4" />
+
+          {/* Result - premium */}
+          <div className="flex items-center gap-2 text-neon-emerald text-sm sm:text-base font-bold mb-5 tracking-wide">
+            <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5" />
             <span>{project.result}</span>
           </div>
           
           <a
             href={project.link}
-            className="inline-flex items-center gap-2 text-primary font-medium hover:underline w-fit"
+            className="inline-flex items-center gap-2 text-neon-emerald font-bold hover:text-white transition-all duration-300 group/link w-fit text-lg"
           >
-            <span>View Live Site</span>
-            <ExternalLink className="w-4 h-4" />
+            <span>Explore Project</span>
+            <ExternalLink className="w-5 h-5 group-hover/link:translate-x-2 group-hover/link:translate-y-[-2px] transition-transform" />
           </a>
         </div>
 
-        {/* Corner Icon */}
-        <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-foreground/10 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <ExternalLink className="w-4 h-4 text-foreground" />
+        {/* Premium Corner Icon */}
+        <div className="absolute top-8 right-8 w-16 h-16 rounded-full bg-neon-emerald/20 backdrop-blur-xl flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-neon-emerald/50" style={{boxShadow: "0 0 30px rgba(95, 149, 152, 0.4)"}}>
+          <ExternalLink className="w-6 h-6 text-neon-emerald" />
         </div>
       </div>
     </motion.div>
@@ -119,7 +125,7 @@ const Portfolio = () => {
   const isHeaderInView = useInView(headerRef, { once: true, margin: "-100px" });
 
   return (
-    <section id="work" className="py-32 relative">
+    <section id="work" className="py-20 relative">
       {/* Watermark */}
       <div className="watermark top-40 -left-32 -rotate-12">V</div>
 
@@ -129,12 +135,12 @@ const Portfolio = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-16 sm:mb-20"
         >
           <p className="text-muted-sage text-sm tracking-[0.3em] uppercase mb-4">
             Featured Work
           </p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter">
             Our Portfolio
           </h2>
         </motion.div>

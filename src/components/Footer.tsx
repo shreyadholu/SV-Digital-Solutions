@@ -1,19 +1,28 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Mail, Instagram, ArrowUp } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 
 interface FooterProps {
-  onOpenContact: () => void;
+  onOpenContact?: () => void;
 }
 
 const Footer = ({ onOpenContact }: FooterProps) => {
+  const navigate = useNavigate();
+  
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
-    <footer id="contact" className="py-20 border-t border-border relative overflow-hidden">
+    <footer
+      id="contact"
+      className="py-24 border-t border-border/50 relative overflow-hidden pointer-events-auto z-20 bg-gradient-to-b from-void-black via-void-black to-obsidian"
+    >
+      {/* Background Gradient Glow */}
+      <div className="absolute inset-0 bg-gradient-to-t from-neon-emerald/5 to-transparent pointer-events-none" />
+
       {/* Background Watermark */}
-      <div className="watermark bottom-0 right-0 translate-x-1/4 translate-y-1/4">
+      <div className="watermark bottom-0 right-0 translate-x-1/4 translate-y-1/4 z-0">
         SV
       </div>
 
@@ -26,15 +35,15 @@ const Footer = ({ onOpenContact }: FooterProps) => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter mb-6">
+            <h2 className="text-section mb-6">
               Ready to start
-              <span className="block text-gradient-cyan">your project?</span>
+              <span className="block text-gradient-emerald">your project?</span>
             </h2>
-            <p className="text-muted-foreground text-lg mb-8 max-w-md">
+            <p className="text-muted-foreground text-base sm:text-lg mb-8 max-w-md leading-relaxed">
               Let's create something extraordinary together. Reach out and let's discuss your vision.
             </p>
             <button
-              onClick={onOpenContact}
+              onClick={() => navigate('/contact')}
               className="btn-primary inline-flex items-center gap-2"
             >
               Get in Touch
@@ -57,35 +66,47 @@ const Footer = ({ onOpenContact }: FooterProps) => {
               <ul className="space-y-4">
                 {["Services", "Work", "Process", "Contact"].map((item) => (
                   <li key={item}>
-                    <a
-                      href={`#${item.toLowerCase()}`}
-                      className="text-muted-foreground hover:text-foreground transition-colors duration-300"
-                    >
-                      {item}
-                    </a>
+                    {item === "Contact" ? (
+                      <Link
+                        to="/contact"
+                        className="text-muted-foreground hover:text-foreground transition-colors duration-300"
+                      >
+                        {item}
+                      </Link>
+                    ) : (
+                      <a
+                        href={`#${item.toLowerCase()}`}
+                        className="text-muted-foreground hover:text-foreground transition-colors duration-300"
+                      >
+                        {item}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
             </div>
 
             <div>
-              <h3 className="text-sm font-semibold text-muted-sage tracking-[0.2em] uppercase mb-6">
+              <h3 className="text-sm font-semibold text-neon-emerald tracking-[0.2em] uppercase mb-6">
                 Connect
               </h3>
               <ul className="space-y-4">
                 <li>
                   <a
                     href="mailto:hello@svdigital.com"
-                    className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors duration-300"
+                    className="flex items-center gap-2 text-muted-foreground hover:text-neon-emerald transition-colors duration-300 font-medium"
                   >
                     <Mail className="w-4 h-4" />
                     hello@svdigital.com
                   </a>
                 </li>
+
                 <li>
                   <a
-                    href="#"
-                    className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors duration-300"
+                    href="https://www.instagram.com/sv_digital_solutions"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-muted-foreground hover:text-neon-emerald transition-colors duration-300 font-medium"
                   >
                     <Instagram className="w-4 h-4" />
                     Instagram
@@ -97,18 +118,18 @@ const Footer = ({ onOpenContact }: FooterProps) => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="pt-8 border-t border-border/50 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-muted-foreground text-sm">
             © 2024 SV Digital Solutions. All rights reserved.
           </p>
-          
+
           {/* Back to Top */}
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors duration-300 group"
+            className="flex items-center gap-2 text-muted-foreground hover:text-neon-emerald transition-colors duration-300 group font-medium"
           >
             <span className="text-sm">Back to Top</span>
-            <div className="w-8 h-8 rounded-full border border-border flex items-center justify-center group-hover:border-muted-sage group-hover:bg-muted-sage/10 transition-all duration-300">
+            <div className="w-8 h-8 rounded-full border border-border group-hover:border-neon-emerald group-hover:bg-neon-emerald/10 transition-all duration-300 flex items-center justify-center">
               <ArrowUp className="w-4 h-4" />
             </div>
           </button>
