@@ -124,7 +124,7 @@
   .btn-ghost:hover {
     border-color: hsl(var(--neon-emerald));
     background: hsl(var(--neon-emerald) / 0.08);
-    box-shadow: 0 0 50px hsl(var(--neon-emerald) / 0.5), inset 0 0 20px hsl(var(--neon-emerald) / 0.2), 0 8px 32px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 20px hsl(var(--neon-emerald) / 0.2), inset 0 0 10px hsl(var(--neon-emerald) / 0.1), 0 8px 32px rgba(0, 0, 0, 0.3);
     transform: translateY(-2px);
   }
 
@@ -159,7 +159,7 @@
 
   .btn-primary:hover {
     transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 0 150px hsl(var(--neon-emerald) / 0.8), 0 0 250px hsl(var(--neon-emerald) / 0.5), 0 15px 50px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 60px hsl(var(--neon-emerald) / 0.25), 0 0 100px hsl(var(--neon-emerald) / 0.12), 0 15px 50px rgba(0, 0, 0, 0.4);
   }
 
   .btn-primary:active {
@@ -194,7 +194,7 @@
 
   .card-glass:hover {
     border-color: hsl(var(--neon-emerald) / 0.8);
-    box-shadow: var(--shadow-glass), 0 0 120px hsl(var(--neon-emerald) / 0.35), inset 0 0 80px rgba(255, 255, 255, 0.04);
+    box-shadow: var(--shadow-glass), 0 0 50px hsl(var(--neon-emerald) / 0.15), inset 0 0 40px rgba(255, 255, 255, 0.02);
     transform: translateY(-6px);
     background: hsl(var(--obsidian) / 0.9);
   }
