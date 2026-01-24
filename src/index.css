@@ -7,28 +7,30 @@
 @import "@fontsource/plus-jakarta-sans/600.css";
 @import "@fontsource/plus-jakarta-sans/700.css";
 @import "@fontsource/plus-jakarta-sans/800.css";
+@import "@fontsource/space-grotesk/700.css";
+@import "@fontsource/space-grotesk/800.css";
 
 @layer base {
   :root {
     /* SV Digital Solutions - Ultra Premium OLED Design System */
-    
+
     /* OLED Black Core */
     --void-black: 0 0% 2%;
     --obsidian: 0 0% 5%;
     --charcoal: 0 0% 10%;
     --graphite: 0 0% 15%;
-    
+
     /* High-Contrast Neon Accents */
     --neon-emerald: 160 100% 50%;
     --neon-emerald-dim: 160 80% 35%;
     --warm-gold: 45 100% 55%;
     --warm-gold-dim: 45 70% 40%;
     --rose-accent: 340 85% 60%;
-    
+
     /* Neutral Tones */
     --silver: 0 0% 75%;
     --platinum: 0 0% 90%;
-    
+
     /* Core Theme Tokens - OLED Optimized */
     --background: 0 0% 2%;
     --foreground: 0 0% 95%;
@@ -65,13 +67,13 @@
     --gradient-gold: linear-gradient(135deg, hsl(var(--warm-gold)), hsl(var(--warm-gold-dim)));
     --gradient-void: radial-gradient(ellipse at center, hsl(var(--obsidian)), hsl(var(--void-black)));
     --gradient-glow: radial-gradient(ellipse at center, hsl(var(--neon-emerald) / 0.15), transparent 70%);
-    
+
     /* Luxe Shadows */
     --shadow-glow-emerald: 0 0 60px hsl(var(--neon-emerald) / 0.4);
     --shadow-glow-gold: 0 0 40px hsl(var(--warm-gold) / 0.3);
     --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.8);
     --shadow-glass: inset 0 1px 0 0 hsl(0 0% 100% / 0.05);
-    
+
     /* Sidebar */
     --sidebar-background: 0 0% 2%;
     --sidebar-foreground: 0 0% 95%;
@@ -104,12 +106,18 @@
     background: hsl(var(--void-black));
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-bold tracking-tight;
   }
 }
 
 @layer components {
+
   /* Ghost Button with Aura */
   .btn-ghost {
     @apply relative px-8 py-4 rounded-full font-semibold text-foreground;
@@ -247,9 +255,76 @@
     backdrop-filter: blur(20px);
     border-bottom: 1px solid hsl(var(--border) / 0.3);
   }
+
+  /* SV Logo Premium Branding - Refined Space Grotesk */
+  .logo-sv {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.08em;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    position: relative;
+    padding-right: 0.15em;
+    font-size: 2.25rem;
+  }
+
+  .logo-sv .char-s {
+    color: hsl(var(--foreground));
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 2;
+  }
+
+  .logo-sv .char-v {
+    @apply text-gradient-emerald;
+    margin-left: -0.1em;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 0 10px hsl(var(--neon-emerald) / 0.2));
+  }
+
+  /* Decorative Logo Dot */
+  .logo-sv::after {
+    content: '';
+    position: absolute;
+    bottom: 0.2em;
+    right: -0.05em;
+    width: 0.15em;
+    height: 0.15em;
+    background: var(--gradient-emerald);
+    border-radius: 50%;
+    box-shadow: 0 0 15px hsl(var(--neon-emerald) / 0.6);
+    animation: logoGlow 3s ease-in-out infinite;
+  }
+
+  @keyframes logoGlow {
+
+    0%,
+    100% {
+      opacity: 0.8;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+      box-shadow: 0 0 25px hsl(var(--neon-emerald) / 0.8);
+    }
+  }
+
+  .group:hover .logo-sv .char-s {
+    transform: translateX(-2px);
+    color: hsl(var(--neon-emerald));
+  }
+
+  .group:hover .logo-sv .char-v {
+    transform: translateX(2px);
+  }
 }
 
 @layer utilities {
+
   /* Text Gradients */
   .text-gradient-emerald {
     background: var(--gradient-emerald);
@@ -282,6 +357,7 @@
       opacity: 0;
       transform: translateY(30px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -290,9 +366,12 @@
 
   /* Glow Pulse */
   @keyframes glowPulse {
-    0%, 100% {
+
+    0%,
+    100% {
       box-shadow: 0 0 40px hsl(var(--neon-emerald) / 0.3);
     }
+
     50% {
       box-shadow: 0 0 80px hsl(var(--neon-emerald) / 0.5);
     }
@@ -304,9 +383,12 @@
 
   /* Float Animation */
   @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
       transform: translateY(0) rotate(0deg);
     }
+
     50% {
       transform: translateY(-20px) rotate(2deg);
     }
@@ -317,9 +399,23 @@
   }
 
   /* Stagger animation delays */
-  .delay-100 { animation-delay: 100ms; }
-  .delay-200 { animation-delay: 200ms; }
-  .delay-300 { animation-delay: 300ms; }
-  .delay-400 { animation-delay: 400ms; }
-  .delay-500 { animation-delay: 500ms; }
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .delay-500 {
+    animation-delay: 500ms;
+  }
 }
