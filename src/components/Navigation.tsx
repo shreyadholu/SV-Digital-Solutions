@@ -56,7 +56,7 @@ const Navigation = ({ onOpenContact }: NavigationProps) => {
                 className="relative text-muted-foreground hover:text-neon-emerald transition-colors duration-300 text-sm font-semibold tracking-wide group"
               >
                 {link.label}
-                <span className="absolute -bottom-2 left-0 w-0 h-1 bg-gradient-to-r from-neon-emerald to-neon-emerald/50 transition-all duration-300 group-hover:w-full rounded-full" />
+                <span className="absolute -bottom-2 left-0 w-0 h-1 bg-gradient-to-r from-neon-emerald to-neon-emerald/50 transition-all duration-400 group-hover:w-full rounded-full" />
               </a>
             ))}
             <button

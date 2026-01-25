@@ -73,18 +73,18 @@ const ServiceCard = ({
       className="relative group"
     >
       {/* Background glow */}
-      <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-neon-emerald/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-neon-emerald/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-600 blur-2xl" />
 
-      <div className="relative bg-card/60 backdrop-blur-lg rounded-3xl p-8 border border-border/60 group-hover:border-neon-emerald/40 transition-all duration-500 h-full flex flex-col">
+      <div className="relative bg-card/70 backdrop-blur-xl rounded-3xl p-8 border border-border/70 group-hover:border-neon-emerald/50 transition-all duration-600 h-full flex flex-col group-hover:bg-card/85 group-hover:shadow-lg" style={{boxShadow: "0 0 40px rgba(0, 0, 0, 0.2)"}}>
       {/* Icon */}
       <div className="mb-6">
-        <div className="w-16 h-16 rounded-2xl bg-neon-emerald/8 flex items-center justify-center group-hover:bg-neon-emerald/20 transition-all duration-300 border border-neon-emerald/30 group-hover:border-neon-emerald/60 shadow-lg">
-          <service.icon className="w-8 h-8 text-neon-emerald" />
+        <div className="w-16 h-16 rounded-2xl bg-neon-emerald/10 flex items-center justify-center group-hover:bg-neon-emerald/25 transition-all duration-400 border border-neon-emerald/40 group-hover:border-neon-emerald/70 shadow-xl group-hover:shadow-2xl" style={{boxShadow: "0 0 30px rgba(95, 207, 167, 0.1)"}}> 
+          <service.icon className="w-8 h-8 text-neon-emerald group-hover:scale-110 transition-transform duration-300" />
         </div>
       </div>
 
       {/* Title */}
-      <h3 className="text-2xl font-bold text-foreground mb-4 tracking-tight group-hover:text-neon-emerald transition-colors duration-300 leading-tight">
+      <h3 className="text-2xl font-bold text-foreground mb-4 tracking-tight group-hover:text-neon-emerald transition-colors duration-400 leading-tight">
         {service.title}
       </h3>
 

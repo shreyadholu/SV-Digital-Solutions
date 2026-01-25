@@ -163,11 +163,11 @@ const Hero = ({ onOpenContact }: HeroProps) => {
         transition={{ delay: 1.5 }}
       >
         <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
+          animate={{ y: [0, 12, 0] }}
+          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
           className="flex flex-col items-center gap-2 text-muted-foreground"
         >
-          <ArrowDown className="w-4 h-4" />
+          <ArrowDown className="w-5 h-5 drop-shadow-lg" />
         </motion.div>
       </motion.div>
     </section>
