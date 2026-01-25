@@ -19,7 +19,10 @@ const Footer = ({ onOpenContact }: FooterProps) => {
       className="py-24 border-t border-border/50 relative overflow-hidden pointer-events-auto z-20 bg-gradient-to-b from-void-black via-void-black to-obsidian"
     >
       {/* Background Gradient Glow */}
-      <div className="absolute inset-0 bg-gradient-to-t from-neon-emerald/5 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-neon-emerald/8 to-transparent pointer-events-none" />
+      
+      {/* Top Glow Effect */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-96 bg-gradient-radial from-neon-emerald/10 to-transparent pointer-events-none blur-3xl" />
 
       {/* Background Watermark */}
       <div className="watermark bottom-0 right-0 translate-x-1/4 translate-y-1/4 z-0">
@@ -44,10 +47,10 @@ const Footer = ({ onOpenContact }: FooterProps) => {
             </p>
             <button
               onClick={() => navigate('/contact')}
-              className="btn-primary inline-flex items-center gap-2"
+              className="btn-primary inline-flex items-center gap-2 shadow-xl hover:shadow-2xl"
             >
               Get in Touch
-              <ArrowUpRight className="w-5 h-5" />
+              <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
             </button>
           </motion.div>
 

@@ -98,7 +98,7 @@ const ServiceCard = ({
         {service.tags.map((tag) => (
           <span
             key={tag}
-            className="px-3 py-2 text-xs font-semibold rounded-full bg-neon-emerald/8 text-muted-foreground border border-neon-emerald/30 hover:border-neon-emerald/60 hover:text-neon-emerald transition-all duration-300 shadow-sm"
+            className="px-3 py-2 text-xs font-semibold rounded-full bg-neon-emerald/12 text-muted-foreground border border-neon-emerald/40 hover:border-neon-emerald/70 hover:text-neon-emerald hover:bg-neon-emerald/20 transition-all duration-400 shadow-sm"
           >
             {tag}
           </span>
