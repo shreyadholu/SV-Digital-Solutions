@@ -93,11 +93,11 @@ const Footer = ({ onOpenContact }: FooterProps) => {
               <ul className="space-y-4">
                 <li>
                   <a
-                    href="mailto:hello@svdigital.com"
+                    href="mailto:sv.digi.solution@outlook.com"
                     className="flex items-center gap-2 text-muted-foreground hover:text-neon-emerald transition-colors duration-300 font-medium"
                   >
                     <Mail className="w-4 h-4" />
-                    hello@svdigital.com
+                    sv.digi.solution@outlook.com
                   </a>
                 </li>
 
