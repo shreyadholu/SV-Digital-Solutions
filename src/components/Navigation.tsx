@@ -44,6 +44,7 @@ const Navigation = () => {
               <span className="text-gradient-emerald">.</span>
             </span>
           </a>
+          
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
