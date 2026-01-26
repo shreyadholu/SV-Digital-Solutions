@@ -37,6 +37,8 @@ const Navigation = ({ onOpenContact }: NavigationProps) => {
           ? "nav-glass"
           : "bg-transparent"
           }`}
+
+          
       >
         <nav className="section-container py-5 flex items-center justify-between">
           {/* Logo */}
