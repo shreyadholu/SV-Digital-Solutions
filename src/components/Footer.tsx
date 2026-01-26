@@ -2,13 +2,9 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Mail, Instagram, ArrowUp } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 
-interface FooterProps {
-  onOpenContact?: () => void;
-}
-
-const Footer = ({ onOpenContact }: FooterProps) => {
+const Footer = () => {
   const navigate = useNavigate();
-  
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -20,7 +16,7 @@ const Footer = ({ onOpenContact }: FooterProps) => {
     >
       {/* Background Gradient Glow */}
       <div className="absolute inset-0 bg-gradient-to-t from-neon-emerald/8 to-transparent pointer-events-none" />
-      
+
       {/* Top Glow Effect */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-96 bg-gradient-radial from-neon-emerald/10 to-transparent pointer-events-none blur-3xl" />
 

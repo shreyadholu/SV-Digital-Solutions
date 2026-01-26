@@ -3,11 +3,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-interface NavigationProps {
-  onOpenContact: () => void;
-}
-
-const Navigation = ({ onOpenContact }: NavigationProps) => {
+const Navigation = () => {
   const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -62,7 +58,7 @@ const Navigation = ({ onOpenContact }: NavigationProps) => {
               </a>
             ))}
             <button
-              onClick={onOpenContact}
+              onClick={() => navigate('/contact')}
               className="btn-ghost text-sm py-3 px-6 border-neon-emerald/30 hover:border-neon-emerald"
             >
               Let's Talk

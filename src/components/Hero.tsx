@@ -4,10 +4,6 @@ import { useRef, Suspense } from "react";
 import { useNavigate } from "react-router-dom";
 import ParticleSphere from "./ParticleSphere";
 
-interface HeroProps {
-  onOpenContact?: () => void;
-}
-
 // Stats component
 const Stats = () => {
   const stats = [
@@ -37,7 +33,7 @@ const Stats = () => {
   );
 };
 
-const Hero = ({ onOpenContact }: HeroProps) => {
+const Hero = () => {
   const navigate = useNavigate();
   const sectionRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -58,7 +54,7 @@ const Hero = ({ onOpenContact }: HeroProps) => {
       {/* Ambient Glow Effects */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Top-left light ray */}
-        <div 
+        <div
           className="absolute -top-40 -left-40 w-[600px] h-[600px] opacity-30"
           style={{
             background: "radial-gradient(ellipse at center, hsl(160 100% 50% / 0.3) 0%, transparent 70%)",
@@ -66,7 +62,7 @@ const Hero = ({ onOpenContact }: HeroProps) => {
           }}
         />
         {/* Bottom glow */}
-        <div 
+        <div
           className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[400px]"
           style={{
             background: "radial-gradient(ellipse at center bottom, hsl(160 100% 50% / 0.05) 0%, transparent 60%)",
@@ -75,7 +71,7 @@ const Hero = ({ onOpenContact }: HeroProps) => {
       </div>
 
       {/* Logo Watermark */}
-      <motion.div 
+      <motion.div
         className="watermark top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
         style={{ y: useTransform(scrollYProgress, [0, 1], [0, 200]) }}
       >
@@ -83,8 +79,8 @@ const Hero = ({ onOpenContact }: HeroProps) => {
       </motion.div>
 
       {/* Content */}
-      <motion.div 
-        className="relative z-10 text-center section-container" 
+      <motion.div
+        className="relative z-10 text-center section-container"
         style={{ y: contentY, opacity }}
       >
         {/* Badge */}
@@ -97,12 +93,12 @@ const Hero = ({ onOpenContact }: HeroProps) => {
             boxShadow: "0 0 30px rgba(95, 149, 152, 0.2), inset 0 1px 0 rgba(255,255,255,0.1)"
           }}
         >
-          <span className="w-2 h-2 rounded-full bg-neon-emerald animate-pulse shadow-lg" style={{boxShadow: "0 0 10px rgba(95, 149, 152, 0.8)"}} />
+          <span className="w-2 h-2 rounded-full bg-neon-emerald animate-pulse shadow-lg" style={{ boxShadow: "0 0 10px rgba(95, 149, 152, 0.8)" }} />
           <span className="text-xs text-muted-foreground tracking-widest uppercase font-semibold">
             Digital Excellence
           </span>
         </motion.div>
-        
+
         {/* Main Title */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -112,14 +108,14 @@ const Hero = ({ onOpenContact }: HeroProps) => {
         >
           <span className="text-foreground">Building </span>
           <span className="text-gradient-emerald italic inline-block pr-[0.15em] overflow-visible">
-              Digital
+            Digital
           </span>
 
           <br />
           <span className="text-gradient-emerald italic inline-block pr-1">Solutions</span>
           <span className="text-foreground text-3xl md:text-7xl lg:text-8xl"> That Matter</span>
         </motion.h1>
-        
+
         {/* Tagline */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -129,7 +125,7 @@ const Hero = ({ onOpenContact }: HeroProps) => {
         >
           We handle digital, you handle the business.
         </motion.p>
-        
+
         {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
