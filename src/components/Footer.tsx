@@ -63,23 +63,15 @@ const Footer = () => {
                 Navigation
               </h3>
               <ul className="space-y-4">
-                {["Services", "Work", "Process", "Contact"].map((item) => (
+                {["Services", "Work", "About", "Contact"].map((item) => (
                   <li key={item}>
-                    {item === "Contact" ? (
-                      <Link
-                        to="/contact"
-                        className="text-muted-foreground hover:text-foreground transition-colors duration-300"
-                      >
-                        {item}
-                      </Link>
-                    ) : (
-                      <a
-                        href={`#${item.toLowerCase()}`}
-                        className="text-muted-foreground hover:text-foreground transition-colors duration-300"
-                      >
-                        {item}
-                      </a>
-                    )}
+                    <Link
+                      to={`/${item.toLowerCase()}`}
+                      onClick={() => scrollToTop()}
+                      className="text-muted-foreground hover:text-foreground transition-colors duration-300"
+                    >
+                      {item}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -142,7 +134,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border/50 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-muted-foreground text-sm">
-            © 2024 SV Digital Solutions. All rights reserved.
+            © 2026 SV Digital Solutions. All rights reserved.
           </p>
 
           {/* Back to Top */}
