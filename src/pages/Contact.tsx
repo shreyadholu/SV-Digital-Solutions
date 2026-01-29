@@ -83,11 +83,10 @@ const Contact = () => {
       >
         <div className="section-container py-5 flex items-center justify-between">
           <Link to="/" className="flex items-center group">
-            <img
-              src="/sv-digi-solution-logo.png"
-              alt="SV Digital Solutions"
-              className="h-8 md:h-9 w-auto transition-opacity duration-300 group-hover:opacity-80"
-            />
+            <span className="text-xl font-extrabold tracking-tighter">
+              <span className="text-foreground group-hover:text-neon-emerald transition-colors duration-300">SV</span>
+              <span className="text-gradient-emerald">.</span>
+            </span>
           </Link>
           <Link
             to="/"
