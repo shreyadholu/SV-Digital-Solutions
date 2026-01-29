@@ -85,34 +85,57 @@ const Footer = () => {
               </ul>
             </div>
 
-            <div>
-              <h3 className="text-sm font-semibold text-neon-emerald tracking-[0.2em] uppercase mb-6">
-                Connect
-              </h3>
-              <ul className="space-y-4">
-                <li>
+          <div>
+            <h3 className="text-sm font-semibold text-neon-emerald tracking-[0.2em] uppercase mb-6">
+              Connect
+            </h3>
+            <ul className="space-y-4">
+              <li>
+                <div className="space-y-2">
+                  {/* Primary mailto link */}
                   <a
-                    href="mailto:sv.digi.solution@outlook.com?subject=Inquiry%20from%20Website&body=Hi%2C%20I%27m%20interested%20in%20your%20digital%20solutions%20services.%20Let%27s%20discuss%20my%20project."
-                    className="flex items-center gap-2 text-muted-foreground hover:text-neon-emerald transition-colors duration-300 font-medium cursor-pointer"
+                    href="mailto:sv.digi.solution@outlook.com?subject=Inquiry from Website&body=Hi, I'm interested in your digital solutions services."
+                    className="flex items-center gap-2 text-muted-foreground hover:text-neon-emerald transition-colors duration-300 font-medium cursor-pointer group"
                   >
                     <Mail className="w-4 h-4" />
-                    sv.digi.solution@outlook.com
+                    <span className="group-hover:underline">sv.digi.solution@outlook.com</span>
                   </a>
-                </li>
 
-                <li>
-                  <a
-                    href="https://www.instagram.com/sv_digital_solutions"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-muted-foreground hover:text-neon-emerald transition-colors duration-300 font-medium"
-                  >
-                    <Instagram className="w-4 h-4" />
-                    Instagram
-                  </a>
-                </li>
-              </ul>
-            </div>
+                  {/* Fallback web email buttons */}
+                  <div className="flex gap-2 text-xs ml-6">
+                    <a
+                      href="https://mail.google.com/mail/?view=cm&fs=1&to=sv.digi.solution@outlook.com&su=Inquiry from Website"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground/70 hover:text-neon-emerald underline"
+                    >
+                      Gmail
+                    </a>
+                    <span className="text-muted-foreground/50">|</span>
+                    <a
+                      href="https://outlook.office.com/mail/deeplink/compose?to=sv.digi.solution@outlook.com&subject=Inquiry from Website"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground/70 hover:text-neon-emerald underline"
+                    >
+                      Outlook
+                    </a>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/sv_digital_solutions"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-muted-foreground hover:text-neon-emerald transition-colors duration-300 font-medium"
+                >
+                  <Instagram className="w-4 h-4" />
+                  Instagram
+                </a>
+              </li>
+            </ul>
+          </div>
           </motion.div>
         </div>
 
