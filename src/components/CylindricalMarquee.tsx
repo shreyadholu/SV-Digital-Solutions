@@ -2,16 +2,15 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 
 const technologies = [
+  { name: "HTML", icon: "🏗️" },
+  { name: "CSS", icon: "🎨" },
+  { name: "JavaScript", icon: "⚡" },
   { name: "React", icon: "⚛️" },
-  { name: "Next.js", icon: "▲" },
-  { name: "TypeScript", icon: "TS" },
-  { name: "Tailwind", icon: "🎨" },
-  { name: "Figma", icon: "🎯" },
-  { name: "Node.js", icon: "🟢" },
-  { name: "PostgreSQL", icon: "🐘" },
-  { name: "AWS", icon: "☁️" },
-  { name: "Three.js", icon: "🔺" },
-  { name: "Docker", icon: "🐳" },
+  { name: "Java", icon: "☕" },
+  { name: "Python", icon: "🐍" },
+  { name: "Android", icon: "🤖" },
+  { name: "Figma", icon: "✏️" },
+  { name: "Git", icon: "🔗" },
 ];
 
 // Duplicate items multiple times for seamless infinite loop
