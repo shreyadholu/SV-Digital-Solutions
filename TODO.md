@@ -1,4 +1,10 @@
-# TODO: Update Footer Email Link
+# TODO for CylindricalMarquee Update
 
-- [x] Update the mailto link in src/components/Footer.tsx to include subject and body parameters
-- [x] Verify the updated link works correctly (opens email client with pre-filled fields)
+- [x] Update technologies list to the specified string: "HTML • CSS • JavaScript • React • Tailwind • Framer Motion • Java • PostgreSQL • Supabase • Git • GitHub • Vercel • UI/UX • Figma • REST APIs • AI-Assisted Development"
+- [x] Replace marquee container with SVG element containing:
+  - Curved green horizon line at the bottom
+  - White glowing text arranged in an arc above the horizon
+- [x] Apply glowing effects using SVG filters for green and white glows
+- [x] Ensure background is black with subtle green glow
+- [x] Remove marquee animations and logic
+- [x] Test the component visually
