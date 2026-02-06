@@ -25,9 +25,6 @@ const duplicatedTechs = [...technologies, ...technologies, ...technologies, ...t
 const CylindricalMarquee = () => {
   return (
     <section className="py-24 relative overflow-hidden bg-black">
-      {/* Subtle green glow background */}
-      <div className="absolute inset-0 bg-gradient-to-t from-green-900/10 to-transparent" />
-
       {/* Section Header - Premium Typography */}
       <div className="text-center mb-20 relative z-5 px-6">
         <motion.div
@@ -87,36 +84,6 @@ const CylindricalMarquee = () => {
           ))}
         </motion.div>
       </div>
-
-      {/* Decorative elements */}
-      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-green-400/20 to-transparent" />
-
-      {/* Floating particles */}
-      <motion.div
-        className="absolute top-1/4 left-1/4 w-1 h-1 bg-green-400/30 rounded-full"
-        animate={{
-          y: [-20, 20, -20],
-          opacity: [0.3, 0.6, 0.3],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-      <motion.div
-        className="absolute top-1/3 right-1/4 w-0.5 h-0.5 bg-green-400/20 rounded-full"
-        animate={{
-          y: [15, -15, 15],
-          opacity: [0.4, 0.7, 0.4],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 2,
-        }}
-      />
     </section>
   );
 };
