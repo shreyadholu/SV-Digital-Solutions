@@ -24,9 +24,17 @@ const duplicatedTechs = [...technologies, ...technologies, ...technologies, ...t
 
 const CylindricalMarquee = () => {
   return (
-    <section className="py-24 relative overflow-hidden bg-black">
+    <section className="py-24 relative overflow-hidden bg-void-black">
+      {/* Ambient background glow to match Hero transition */}
+      <div 
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[400px] pointer-events-none"
+        style={{
+          background: "radial-gradient(ellipse at center top, hsl(160 100% 50% / 0.05) 0%, transparent 60%)",
+        }}
+      />
+
       {/* Section Header - Premium Typography */}
-      <div className="text-center mb-20 relative z-5 px-6">
+      <div className="text-center mb-10 relative z-10 px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -43,11 +51,10 @@ const CylindricalMarquee = () => {
       </div>
 
       {/* Marquee Container */}
-      <div className="relative w-full overflow-hidden">
-        {/* Top fade */}
-        <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-black to-transparent z-10" />
-        {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-black to-transparent z-10" />
+      <div 
+        className="relative w-full overflow-hidden"
+        style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)', WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}
+      >
 
         <motion.div
           className="flex gap-12 md:gap-16 w-fit py-8"
@@ -70,14 +77,14 @@ const CylindricalMarquee = () => {
             <motion.div
               key={`${tech}-${index}`}
               className="flex-shrink-0 flex items-center gap-3 px-6 py-3 rounded-full
-                         border border-green-400/20 bg-green-400/5
-                         hover:bg-green-400/10 hover:border-green-400/40
-                         transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
+                         border border-white/10 bg-white/5 backdrop-blur-sm
+                         hover:bg-white/10 hover:border-green-400/50 hover:shadow-[0_0_15px_rgba(74,222,128,0.2)]
+                         transition-all duration-300 cursor-default"
+              whileHover={{ scale: 1.05, y: -2 }}
               transition={{ type: "spring", stiffness: 400, damping: 30 }}
             >
-              <span className="text-green-400 text-sm">⚡</span>
-              <span className="text-white text-lg md:text-xl font-medium tracking-wide">
+              <span className="text-green-400 text-lg">⚡</span>
+              <span className="text-white/90 text-lg font-medium tracking-wide">
                 {tech}
               </span>
             </motion.div>
