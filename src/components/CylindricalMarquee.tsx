@@ -34,7 +34,7 @@ const CylindricalMarquee = () => {
       />
 
       {/* Section Header - Premium Typography */}
-      <div className="text-center mb-10 relative z-10 px-6">
+      <div className="text-center mb-5 relative z-10 px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -57,7 +57,7 @@ const CylindricalMarquee = () => {
       >
 
         <motion.div
-          className="flex gap-12 md:gap-16 w-fit py-8"
+          className="flex gap-12 md:gap-16 w-fit py-4"
           animate={{
             x: ["0%", "-50%"],
           }}
