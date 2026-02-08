@@ -33,6 +33,8 @@ const CylindricalMarquee = () => {
         }}
       />
 
+
+
       {/* Section Header - Premium Typography */}
       <div className="text-center mb-5 relative z-10 px-6">
         <motion.div
